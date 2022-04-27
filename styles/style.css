@@ -1,0 +1,409 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  background-color: #e5e5e5;
+  --gray-bg: #2f303a;
+  --blue-c: #2196f3;
+  --blue-c2: #188ce8;
+  --text-c-1: #212121;
+  --text-c-2: #757575;
+}
+
+.container {
+  width: 1170px; /* Почему в задании указано 1200? */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section {
+  padding: 94px 0; 
+}
+
+body {
+  width: 1600px;
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  background-color: #fff;
+}
+
+
+input[type="button"] { /*Нужно указывать дополнительно, потому что правило для body на содержимое input не распространяется */
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  cursor: pointer;
+}
+
+
+/* Header */
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  border-bottom: 1px solid #ececec;
+}
+
+.logo {
+  font-family: Raleway;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: .03em;
+  color: #000;
+}
+
+.logo > span {
+  color: var(--blue-c);
+}
+
+.logo-menu {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.main-menu ul{
+  display: flex; 
+  margin-left: 93px;
+}
+.main-menu li:not(:last-child) {
+  margin-right: 50px;
+}
+
+.main-menu li a {
+  text-decoration: none;
+  font-weight: 500;
+  line-height: 1.143;
+  letter-spacing: .02em;
+  color: var(--text-c-1);
+}
+
+.main-menu li a:hover,
+.main-menu li a:focus {
+  color: var(--blue-c);
+}
+
+.main-menu li.selected a {
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+  color: var(--blue-c);
+}
+
+header .email {
+  margin-right: 30px;
+}
+
+header .address {
+  display: flex;
+  justify-content: flex-end;
+}
+
+header .address svg {
+  margin-right: 10px;
+}
+
+header .email,
+header .phone {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-weight: 500;
+  line-height: 1.143;
+  letter-spacing: .02em;
+  color: var(--text-c-2);
+}
+
+.email:hover,
+.phone:hover,
+.email:focus,
+.phone:focus {
+    color: var(--blue-c);
+}
+
+
+/* Order */
+
+.order-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:center;
+  padding: 200px 0;
+  vertical-align:bottom;
+  background-image: url("/images/team-bg.jpg");
+}
+
+.order-section > div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: var(--gray-bg);
+  opacity: 40%;
+}
+
+.order-section > * {
+  z-index: 2;
+}
+
+.order-section > h1 {
+  font-weight: 900;
+  font-size: 44px;
+  line-height: 1.364;
+  text-align: center;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.order-section > input {
+  width: 200px;
+  height: 50px;
+  margin-top: 30px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.88;
+  letter-spacing: .06em;
+  color: #fff;
+  background: var(--blue-c);
+  box-shadow: 0px 4px 4px rgba(0,0,0,.15);
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.order-section > input:hover {
+  background: var(--blue-c2);
+}
+
+/* About us */
+
+.about-us-section > ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.features {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 94px;
+}
+
+.feature {
+  width: 270px;
+}
+.feature > h3 {
+  margin-bottom: 10px;
+  font-weight: 700;
+  line-height: 1.143;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  color: var(--text-c-1);
+}
+
+.feature > p {
+  line-height: 1.71;
+  letter-spacing: .03em;
+  color: var(--text-c-2);
+}
+
+h2 { /* This applies to about-us-section and team-section */
+  margin-bottom: 50px;
+
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.167;
+  text-align: center;
+  letter-spacing: .03em;
+  color: var(--text-c-1);
+}
+
+
+/* Team */
+
+.team-section {
+  background-color: #f5f4fa;
+}
+
+.team-section ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.team-member {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  box-shadow: 0px 1px 3px rgba(0,0,0,.12), 0px 1px 1px rgba(0,0,0,.14), 0px 2px 1px rgba(0,0,0,.2);
+  border-radius: 0px 0px 4px 4px;
+}
+
+.team-member-info p {
+  margin-top: 30px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.188;
+  text-align: center;
+  letter-spacing: .03em;
+  color: var(--text-c-1);
+}
+
+.team-member-info p + p{
+  margin-top: 10px;
+  font-weight: 400; /* НУжно оставить, переопределяет предыдущее правило */
+  color: var(--text-c-2);
+}
+
+.socials {
+  margin-left: 32px;
+  margin-right: 32px;
+  margin-top: 16px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.socials button {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+
+.socials button use {
+  fill: transparent;
+  color: #afb1b8;
+}
+
+.socials button use:hover {
+  cursor: pointer;
+  fill: var(--blue-c);
+  color: #fff;
+}
+
+/* Footer */
+
+footer {
+  padding: 60px 0;
+  background-color: var(--gray-bg);
+}
+
+footer > .logo {
+  color: #fff;
+}
+
+footer > address {
+  letter-spacing: .03em;
+  line-height: 1.715;
+  margin-top: 20px;
+  color: #fff;
+}
+
+footer > address > div { /* Эти блоки нужны из-за косяка в эскизе */
+  height: 1.5em; /* Указано так, чтоб масштабировалось, если изменят размер шрифта */
+  margin-bottom: 9px;
+}
+footer > address > div:last-child {
+  margin-bottom: 0;
+}
+
+footer a {
+  display: inline;
+  text-decoration: none;
+  font-style: normal;
+  letter-spacing: .03em;
+  color: rgba(255,255,255,.6);
+}
+
+
+/* ---------------------- Portfolio ----------------------- */
+
+
+
+/* Filters */
+
+.proj-filter {
+  display: flex;
+  justify-content: center;
+}
+.proj-filter li {
+  display: inline-block;
+}
+
+.proj-filter input {
+  margin: 0px 4px;
+  padding: 6px 22px;
+  background: #f5f4fa;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.62;
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: var(--text-c-1);
+}
+
+.proj-filter input.selected {
+  background-color: var(--blue-c);
+  color: #fff;
+  box-shadow: 0px 3px 1px rgba(0,0,0,.1), 0px 1px 2px rgba(0,0,0,.08), 0px 2px 2px rgba(0,0,0,.12);
+}
+
+/* Single project */
+
+.projects ul {
+  margin-top: 50px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  row-gap: 30px;
+}
+
+.project {
+  width: 370px;
+  display: flex;
+  flex-direction: column; 
+  box-shadow:inset 0px 0px 0px 1px #eee;  /* 1px border inside the box */
+}
+
+.project:hover {
+  box-shadow: 0px 1px 1px rgba(0,0,0,.12), 0px 4px 4px rgba(0,0,0,.06), 1px 4px 6px rgba(0,0,0,.16);
+  cursor: pointer;
+}
+
+.project > div {
+  /* background-color: red; */
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project p {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 2;
+  letter-spacing: 0.06em;
+  color: var(--text-c-1);
+}
+
+.project p + p {
+  margin-top: 4px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.88;
+  letter-spacing: 0.03em;
+  color: var(--text-c-2);
+}
