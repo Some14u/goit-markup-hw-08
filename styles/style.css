@@ -140,7 +140,7 @@ header .phone {
   justify-content:center;
   padding: 200px 0;
   vertical-align:bottom;
-  background-image: url("/images/team-bg.jpg");
+  background-image: url("images/team-bg.jpg");
 }
 
 .order-section > div {
