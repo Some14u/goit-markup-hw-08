@@ -76,11 +76,15 @@ button[type="button"] {
 /* Header */
 
 header {
+  border-bottom: 1px solid #ececec;
+  height: 80px;
+}
+
+header .container {
+  height: 100%;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  height: 80px;
-  border-bottom: 1px solid #ececec;
 }
 
 .logo {
@@ -277,10 +281,10 @@ h2 { /* Заголовок во всех секциях одинаковый, п
 .team-member > img {
   display: block;
   overflow: hidden;
-  margin-bottom: var(--spacer);
 }
 
 .team-member-info {
+  padding: var(--spacer) 32px;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.188;
@@ -294,12 +298,16 @@ h2 { /* Заголовок во всех секциях одинаковый, п
 }
 
 .team-member-info p {
+  margin-bottom: 16px;
   font-weight: 400; /* Нужно оставить, переопределяет предыдущее правило */
   color: var(--text-c-2);
 }
 
+.team-member-info *:last-child {
+  margin-bottom: 0;
+}
+
 .socials {
-  margin: 16px 32px var(--spacer) 32px;
   display: flex;
   justify-content: space-between;
 }
