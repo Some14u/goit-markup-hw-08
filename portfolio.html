@@ -12,151 +12,163 @@
   </head>
 
   <body>
-    <div class="main">
-      <!-- Header section -->
-      <header class="container">
-        <div class="logo-menu">
-          <div class="logo"><span>Web</span>Studio</div>
-          <nav class="main-menu">
-            <ul>
-              <li><a href="index.html">Студия</a></li>
-              <li class="selected"><a href="portfolio.html">Портфолио</a></li>
-              <li><a href="contacts.html">Контакты</a></li>
-            </ul>
-          </nav>
-        </div>
-        <div class="address">
+    <!-- Header section -->
+    <header class="container">
+      <a class="logo" href="#"><span>Web</span>Studio</a>
+      <nav class="main-menu">
+        <ul>
+          <li class="selected"><a href="index.html">Студия</a></li>
+          <li><a href="portfolio.html">Портфолио</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+      <ul class="address">
+        <li>
           <a class="email" href="mailto:info@devstudio.com">
             <svg width="16px" height="12px">
               <use href="images/icons.svg#envelope"></use>
             </svg>
             info@devstudio.com
           </a>
+        </li>
+        <li>
           <a class="phone" href="tel:+380961111111">
             <svg width="10px" height="16px">
               <use href="images/icons.svg#smartphone"></use>
             </svg>
             +38&nbsp;096&nbsp;111&nbsp;11&nbsp;11
           </a>
-        </div>
-      </header>
-      <!-- Main section -->
-      <main class="portfolio-main container section">
-        <ul class="proj-filter">
-          <li><input class="proj-filter-all selected" type="button" value="Все" /></li>
-          <li><input class="proj-filter-web" type="button" value="Веб-сайты" /></li>
-          <li><input class="proj-filter-app" type="button" value="Приложения" /></li>
-          <li><input class="proj-filter-design" type="button" value="Дизайн" /></li>
-          <li><input class="proj-filter-mark" type="button" value="Маркетинг" /></li>
+        </li>
+      </ul>
+    </header>
+    <!-- Main section -->
+    <main class="portfolio-main container section">
+      <!-- Projects section -->
+      <section class="projects">
+        <h2 class="hidden">Портфолио</h2>
+      <ul class="proj-filter">
+        <li><button class="proj-filter-all selected" type="button">Все</button></li>
+        <li><button class="proj-filter-web" type="button">Веб-сайты</button></li>
+        <li><button class="proj-filter-app" type="button">Приложения</button></li>
+        <li><button class="proj-filter-design" type="button">Дизайн</button></li>
+        <li><button class="proj-filter-mark" type="button">Маркетинг</button></li>
+      </ul>
+        <ul class="wrappable">
+          <li class="project">
+            <img src="images/project1.jpg" alt="Проект 1" width="370px" height="294"/>
+            <div>
+              <h3>Технокряк</h3>
+              <p>Веб-сайт</p>
+            </div>
+          </li>
+          <li class="project">
+            <img src="images/project2.jpg" alt="Проект 2" width="370px" height="294"/>
+            <div>
+              <h3>Постер New Orlean vs Golden Star</h3>
+              <p>Дизайн</p>
+            </div>
+          </li>
+          <li class="project">
+            <img src="images/project3.jpg" alt="Проект 3" width="370px" height="294"/>
+            <div>
+              <h3>Ресторан Seafood</h3>
+              <p>Приложение</p>
+            </div>
+          </li>
+          <li class="project">
+            <img src="images/project4.jpg" alt="Проект 4" width="370px" height="294"/>
+            <div>
+              <h3>Проект Prime</h3>
+              <p>Маркетинг</p>
+            </div>
+          </li>
+          <li class="project">
+            <img src="images/project5.jpg" alt="Проект 5" width="370px" height="294"/>
+            <div>
+              <h3>Проект Boxes</h3>
+              <p>Приложение</p>
+            </div>
+          </li>
+          <li class="project">
+            <img src="images/project6.jpg" alt="Проект 6" width="370px" height="294"/>
+            <div>
+              <h3>Inspiration has no Borders</h3>
+              <p>Веб-сайт</p>
+            </div>
+          </li>
+          <li class="project">
+            <img src="images/project7.jpg" alt="Проект 7" width="370px" height="294"/>
+            <div>
+              <h3>Издание Limited Edition</h3>
+              <p>Дизайн</p>
+            </div>
+          </li>
+          <li class="project">
+            <img src="images/project8.jpg" alt="Проект 8" width="370px" height="294"/>
+            <div>
+              <h3>Проект LAB</h3>
+              <p>Маркетинг</p>
+            </div>
+          </li>
+          <li class="project">
+            <img src="images/project9.jpg" alt="Проект 9" width="370px" height="294"/>
+            <div>
+              <h3>Growing Business</h3>
+              <p>Приложение</p>
+            </div>
+          </li>
         </ul>
-        <section class="projects">
-          <ul>
-            <li class="project">
-              <img src="images/project1.jpg" alt="Проект 1" />
-              <div>
-                <p>Технокряк</p>
-                <p>Веб-сайт</p>
-              </div>
-            </li>
-            <li class="project">
-              <img src="images/project2.jpg" alt="Проект 2" />
-              <div>
-                <p>Постер New Orlean vs Golden Star</p>
-                <p>Дизайн</p>
-              </div>
-            </li>
-            <li class="project">
-              <img src="images/project3.jpg" alt="Проект 3" />
-              <div>
-                <p>Ресторан Seafood</p>
-                <p>Приложение</p>
-              </div>
-            </li>
-            <li class="project">
-              <img src="images/project4.jpg" alt="Проект 4" />
-              <div>
-                <p>Проект Prime</p>
-                <p>Маркетинг</p>
-              </div>
-            </li>
-            <li class="project">
-              <img src="images/project5.jpg" alt="Проект 5" />
-              <div>
-                <p>Проект Boxes</p>
-                <p>Приложение</p>
-              </div>
-            </li>
-            <li class="project">
-              <img src="images/project6.jpg" alt="Проект 6" />
-              <div>
-                <p>Inspiration has no Borders</p>
-                <p>Веб-сайт</p>
-              </div>
-            </li>
-            <li class="project">
-              <img src="images/project7.jpg" alt="Проект 7" />
-              <div>
-                <p>Издание Limited Edition</p>
-                <p>Дизайн</p>
-              </div>
-            </li>
-            <li class="project">
-              <img src="images/project8.jpg" alt="Проект 8" />
-              <div>
-                <p>Проект LAB</p>
-                <p>Маркетинг</p>
-              </div>
-            </li>
-            <li class="project">
-              <img src="images/project9.jpg" alt="Проект 9" />
-              <div>
-                <p>Growing Business</p>
-                <p>Приложение</p>
-              </div>
-            </li>
-          </ul>
-        </section>
-      </main>
-      <!-- Footer section -->
-      <footer>
-        <div class="logo container"><span>Web</span>Studio</div>
-        <address class="container">
-          <div>
+      </section>
+    </main>
+    <!-- Footer section -->
+    <footer>
+      <div class="logo container"><span>Web</span>Studio</div>
+      <address class="container">
+        <ul>
+          <li>
             <p>г. Киев, пр-т Леси Украинки, 26</p>
-          </div>
-          <div>
+          </li>
+          <li>
             <a class="email" href="mailto:info@example.com">info@example.com</a>
-          </div>
-          <div>
+          </li>
+          <li>
             <a class="phone" href="tel:+380991111111">+38&nbsp;099&nbsp;111&nbsp;11&nbsp;11</a>
-          </div>
-        </address>
-        <div class="join-socials">
-          <div>Присоединяйтесь</div>
-          <span>
+          </li>
+        </ul>
+      </address>
+      <div class="join-socials">
+        <div>Присоединяйтесь</div>
+        <ul>
+          <li>
             <button class="instagram-btn">
               <svg width="44px" height="44px">
                 <use href="images/icons.svg#instagram-btn"></use>
               </svg>
             </button>
+          </li>
+          <li>
             <button class="twitter-btn">
               <svg width="44px" height="44px">
                 <use href="images/icons.svg#twitter-btn"></use>
               </svg>
             </button>
+          </li>
+          <li>
             <button class="facebook-btn">
               <svg width="44px" height="44px">
                 <use href="images/icons.svg#facebook-btn"></use>
               </svg>
             </button>
+          </li>
+          <li>
             <button class="linkedin-btn">
               <svg width="44px" height="44px">
                 <use href="images/icons.svg#linkedin-btn"></use>
               </svg>
             </button>
-          </span>
-        </div>
-      </footer>
-    </div>
+          </li>
+        </ul>
+      </div>
+    </footer>
   </body>
 </html>
