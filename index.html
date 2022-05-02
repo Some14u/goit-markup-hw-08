@@ -52,7 +52,7 @@
           Эффективные решения<br />
           для вашего бизнеса
         </h1>
-        <button type="button" class="order">Заказать услугу</button>
+        <button type="button" class="order" data-modal-open >Заказать услугу</button>
       </section>
       <!-- About us section -->
       <section class="about-us-section container section">
@@ -97,9 +97,24 @@
         </ul>
         <h1>Чем мы занимаемся</h1>
         <ul class="our-targets wrappable">
-          <li><img src="images/about-us1.jpg" alt="Компьютеры 1" width="370" height="294" /></li>
-          <li><img src="images/about-us2.jpg" alt="Компьютеры 2" width="370" height="294" /></li>
-          <li><img src="images/about-us3.jpg" alt="Компьютеры 3" width="370" height="294" /></li>
+          <li>
+            <img src="images/about-us1.jpg" alt="Компьютеры 1" width="370" height="294" />
+            <div class="overlay">
+              <p>Десктопные приложения</p>
+            </div>
+          </li>
+          <li>
+            <img src="images/about-us2.jpg" alt="Компьютеры 2" width="370" height="294" />
+            <div class="overlay">
+              <p>Мобильные приложения</p>
+            </div>
+          </li>
+          <li>
+            <img src="images/about-us3.jpg" alt="Компьютеры 3" width="370" height="294" />
+            <div class="overlay">
+              <p>Дизайнерские решения</p>
+            </div>
+          </li>
         </ul>
       </section>
       <!-- Team section -->
@@ -357,5 +372,18 @@
         </ul>
       </div>
     </footer>
+
+    <!-- Modal window -->
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal-window" >
+        <button class="close-button" type="button" data-modal-close>
+          <svg width="11px" height="11px">
+            <use href="images/icons.svg#cross"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+    
+    <script src="./js/modal.js"></script>
   </body>
 </html>

@@ -6,12 +6,14 @@
 
 :root {
   background-color: #e5e5e5;
-  --prima-c: #2196f3;
+  --main-accent-color: 33, 150, 243;
+  --prima-c: rgb(var(--main-accent-color));
   --prima-c2: #188ce8;
   --gray-bg: 47, 48, 58;
   --light-gray: #f5f4fa;
   --light-gray2: #afb1b8;
   --light-gray3: #eceaef;
+  --gray-c: rgba(47, 48, 58, 0.8);
   --white-c: #fff;
   --black-c: #000;
   --border-c1: #ececec;
@@ -19,6 +21,8 @@
   --text-c-1: #212121;
   --text-c-2: #757575;
   --spacer: 30px;
+  --anim-speed: 250ms;
+  --anim-fn: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -114,15 +118,20 @@ header .logo {
 }
 
 .main-menu ul{
-  display: flex; 
+  display: flex;
+}
+
+.main-menu li:not(last-child) {
+  margin-right: 50px;
 }
 
 .main-menu li a {
-  margin-right: 50px;
   font-weight: 500;
-  line-height: calc(16 / 14);
+  padding: calc(24px + 16px / 2) 0;
   letter-spacing: .02em;
   color: var(--text-c-1);
+
+  transition: color var(--anim-speed) var(--anim-fn);
 }
 
 .main-menu li a:hover,
@@ -131,9 +140,21 @@ header .logo {
 }
 
 .main-menu li.selected a {
+  position: relative;
   pointer-events: none;
   cursor: default;
   color: var(--prima-c);
+}
+
+.main-menu li.selected a::before{
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height:4px;
+  top: calc(50% - 4px + 40.5px);
+  border-radius: 2px;
+  background-color: var(--prima-c);
 }
 
 header .address {
@@ -155,7 +176,9 @@ header .address a {
   font-weight: 500;
   line-height: calc(16 / 14);
   letter-spacing: .02em;
-  color: var(--text-c-2);  
+  color: var(--text-c-2);
+
+  transition: color var(--anim-speed) var(--anim-fn);
 }
 
 .address a:hover, /* И для header, и для footer */
@@ -197,12 +220,14 @@ header .address a {
   line-height: calc(30 / 16);
   letter-spacing: .06em;
   color: var(--white-c);
-  background: var(--prima-c);
+  background-color: var(--prima-c);
   box-shadow: 0px 4px 4px rgba(0,0,0,.15);
+
+  transition: background-color var(--anim-speed) var(--anim-fn);
 }
 
 .order-section .order:hover {
-  background: var(--prima-c2);
+  background-color: var(--prima-c2);
 }
 
 /* About us */
@@ -261,6 +286,26 @@ h1 { /* Заголовок во всех секциях одинаковый, п
   display: block;
 }
 
+.our-targets li {
+  position: relative;
+}
+
+.our-targets .overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 27px;
+  background-color: var(--gray-c);
+}
+
+.our-targets .overlay p {
+  font-weight: 700;
+  line-height: calc(16 / 14);
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--white-c);
+}
 
 /* Team */
 
@@ -322,6 +367,9 @@ h1 { /* Заголовок во всех секциях одинаковый, п
   pointer-events: all;
   fill: transparent;
   color: var(--light-gray2);
+  transition:
+    color var(--anim-speed) var(--anim-fn),
+    fill var(--anim-speed) var(--anim-fn);
 }
 
 .socials use:hover,
@@ -341,11 +389,15 @@ h1 { /* Заголовок во всех секциях одинаковый, п
   outline-offset: -1px;
   border-radius: 4px;
   fill: var(--light-gray2);
+  
+  transition:
+    outline-color var(--anim-speed) var(--anim-fn),
+    fill var(--anim-speed) var(--anim-fn);
 }
 
 .clients-section a:hover {
-  fill: var(--prima-c);
   outline-color: var(--prima-c);
+  fill: var(--prima-c);
 }
 
 
@@ -381,6 +433,9 @@ footer > address a {
   letter-spacing: .03em;
   color: var(--white-c);
   opacity: 60%;
+  transition:
+    color var(--anim-speed) var(--anim-fn),
+    opacity var(--anim-speed) var(--anim-fn);
 }
 
 .join-socials {
@@ -411,6 +466,8 @@ footer > address a {
   pointer-events: all;
   fill: rgba(255,255,255,.1);
   color: var(--white-c);
+
+  transition: fill var(--anim-speed) var(--anim-fn);
 }
 
 .join-socials use:hover,
@@ -442,6 +499,9 @@ footer > address a {
   letter-spacing: 0.03em;
   color: var(--text-c-1);
   background-color: var(--light-gray);
+  transition:
+    background-color var(--anim-speed) var(--anim-fn),
+    box-shadow var(--anim-speed) var(--anim-fn);
 }
 
 .proj-filter button:hover,
@@ -460,24 +520,61 @@ footer > address a {
 /* Single project */
 
 .project {
-  width: 370px;
-  box-shadow:inset 0px 0px 0px 1px var(--border-c2); /* 1px border inside the box */
-}
-
-.project img {
   display: block;
+  width: 370px;
+  background-color: var(--white-c);
+  transition: box-shadow var(--anim-speed) var(--anim-fn);
 }
 
 .project:hover {
   box-shadow: 0px 1px 1px rgba(0,0,0,.12), 0px 4px 4px rgba(0,0,0,.06), 1px 4px 6px rgba(0,0,0,.16);
 }
 
-.project div {
+.project img {
+  display: block;
+}
+
+.project .img-part {
+  position: relative;
+  overflow: hidden;
+}
+
+.project .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 63px 24px;
+
+  background-color: rgba(var(--main-accent-color), 0.9);
+  color: var(--white-c);
+  
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.03em;
+
+  transform: translateY(100%);
+  transition: transform var(--anim-speed) var(--anim-fn);
+}
+
+.project:hover .overlay {
+  transform: translateY(0%);
+}
+
+.project .description {
   padding: 20px 24px;
+  padding-top: 20px;
+  padding-left: 23px;
+  padding-right: 23px;
+  padding-bottom: 19px;
   font-weight: 700;
   font-size: 18px;
   line-height: calc(36 / 18);
   letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--border-c2);
+  border-left: 1px solid var(--border-c2);
+  border-right: 1px solid var(--border-c2);
 }
 
 .project h2 {
@@ -493,6 +590,72 @@ footer > address a {
   color: var(--text-c-2);
 }
 
-body * {
-  /* outline: 1px solid red; */
+
+/* Modal window */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+
+  background-color: rgba(0,0,0,0.2);
+  opacity: 1;
+  transition: opacity var(--anim-speed) var(--anim-fn);
 }
+
+.backdrop.is-hidden {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.backdrop.is-hidden .modal-window {
+  transform: translate(-50%, 100vh) rotate(-180deg) scale(2);
+}
+
+.modal-window {
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  width: 528px;
+  height: 581px;
+  transform: translate(-50%, -50%);
+  background-color: var(--white-c);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  transition: transform var(--anim-speed) var(--anim-fn);
+}
+
+.modal-window .close-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+
+  background-color: var(--white-c);
+  border: 1px solid rgba(0,0,0, 0.1);
+  border-radius: 15px;
+
+  transition:
+    fill var(--anim-speed) var(--anim-fn),
+    border-color var(--anim-speed) var(--anim-fn),
+    background-color var(--anim-speed) var(--anim-fn),
+    box-shadow var(--anim-speed) var(--anim-fn);
+}
+
+.modal-window .close-button:hover,
+.modal-window .close-button:focus {
+  fill: var(--white-c);
+  border-color: transparent;
+  background-color: var(--prima-c);
+  box-shadow: 0px 3px 1px rgba(0,0,0,.1), 0px 1px 2px rgba(0,0,0,.08), 0px 2px 2px rgba(0,0,0,.12);
+}
+
+.modal-window .close-button svg {
+  margin: 0 auto;
+}
+
