@@ -6,18 +6,42 @@
 
 :root {
   background-color: #e5e5e5;
+  --prima-c: #2196f3;
+  --prima-c2: #188ce8;
   --gray-bg: 47, 48, 58;
   --light-gray: #f5f4fa;
   --light-gray2: #afb1b8;
-  --blue-c: #2196f3;
-  --blue-c2: #188ce8;
+  --light-gray3: #eceaef;
+  --white-c: #fff;
+  --black-c: #000;
+  --border-c1: #ececec;
+  --border-c2: #eee;
   --text-c-1: #212121;
   --text-c-2: #757575;
   --spacer: 30px;
 }
 
+body {
+  width: 1600px;
+  margin: 0 auto;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  letter-spacing: .03em;
+  background-color: var(--white-c);
+}
+
+button[type="button"] {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+}
+
 .container {
-  width: 1200px; /* Почему в задании указано 1200? */
+  width: 1200px;
   padding-left: 15px;
   padding-right: 15px;
   margin-left: auto;
@@ -30,12 +54,12 @@
 }
 
 .hidden {
-  position:absolute;
-  left:-10000px;
-  top:auto;
-  width:1px;
-  height:1px;
-  overflow:hidden;
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 .wrappable {
@@ -51,33 +75,17 @@
   margin-top: var(--spacer);
 }
 
-body {
-  width: 1600px;
-  margin: 0 auto;
-  font-family: 'Roboto', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  background-color: #fff;
-}
-
-
-button[type="button"] {
-  text-align: center;
-  font-family: 'Roboto', sans-serif;
-  font-style: normal;
-  font-size: 16px;
-  cursor: pointer;
-  border: none;
-  border-radius: 4px;
+a {
+  text-decoration: none;
 }
 
 
 /* Header */
 
 header {
-  border-bottom: 1px solid #ececec;
-  height: 80px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border-c1);
 }
 
 header .container {
@@ -88,18 +96,17 @@ header .container {
 }
 
 .logo {
-  text-decoration: none;
-  font-family: Raleway;
+  font-family: "Raleway", sans-serif;
   font-size: 26px;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.192em;
   letter-spacing: .03em;
-  color: #000;
+  color: var(--black-c);
 }
 
 .logo > span {
   display: inline-block;
-  color: var(--blue-c);
+  color: var(--prima-c);
 }
 
 header .logo {
@@ -112,7 +119,6 @@ header .logo {
 
 .main-menu li a {
   margin-right: 50px;
-  text-decoration: none;
   font-weight: 500;
   line-height: 1.143;
   letter-spacing: .02em;
@@ -121,14 +127,13 @@ header .logo {
 
 .main-menu li a:hover,
 .main-menu li a:focus {
-  color: var(--blue-c);
+  color: var(--prima-c);
 }
 
 .main-menu li.selected a {
   pointer-events: none;
   cursor: default;
-  text-decoration: none;
-  color: var(--blue-c);
+  color: var(--prima-c);
 }
 
 header .address {
@@ -140,47 +145,38 @@ header .address svg {
   margin-right: 10px;
 }
 
-header .address a {
-  display: flex;
-  align-items: center;
-}
-
 header .email {
   margin-right: var(--spacer);
 }
 
-header .email,
-header .phone {
-  text-decoration: none;
+header .address a {
+  display: flex;
+  align-items: center;
   font-weight: 500;
   line-height: 1.143;
   letter-spacing: .02em;
-  color: var(--text-c-2);
+  color: var(--text-c-2);  
 }
 
-.email:hover,
-.phone:hover,
-.email:focus,
-.phone:focus {
-    color: var(--blue-c);
+.address a:hover, /* И для header, и для footer */
+.address a:focus {
+  opacity: 1;
+  color: var(--prima-c);
 }
-
 
 /* Order */
 
 .order-section {
-  background-image: url("../images/team-bg.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.order-section > div {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content:center;
   padding: 200px 0;
-  background-color: rgba(var(--gray-bg),.4);
+
+  background-color: rgb(var(--gray-bg));
+  background-image: linear-gradient(rgba(var(--gray-bg),.4) 40%, rgba(var(--gray-bg),.4) 40%), url("../images/team-bg.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 .order-section h1 {
@@ -191,7 +187,7 @@ header .phone {
   text-align: center;
   letter-spacing: .06em;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--white-c);
 }
 
 .order-section .order {
@@ -200,13 +196,13 @@ header .phone {
   font-weight: 700;
   line-height: 1.88;
   letter-spacing: .06em;
-  color: #fff;
-  background: var(--blue-c);
+  color: var(--white-c);
+  background: var(--prima-c);
   box-shadow: 0px 4px 4px rgba(0,0,0,.15);
 }
 
 .order-section .order:hover {
-  background: var(--blue-c2);
+  background: var(--prima-c2);
 }
 
 /* About us */
@@ -232,10 +228,10 @@ header .phone {
 .feature svg {
   margin: 0 auto;
   color: var(--text-c-1);
-  fill: var(--blue-c);
+  fill: var(--prima-c);
 }
 
-.feature > h3 {
+.feature > h2 {
   margin-bottom: 10px;
   font-weight: 700;
   line-height: 1.143;
@@ -250,7 +246,7 @@ header .phone {
   color: var(--text-c-2);
 }
 
-h2 { /* Заголовок во всех секциях одинаковый, поэтому без селектора */
+h1 { /* Заголовок во всех секциях одинаковый, поэтому без селектора */
   margin-bottom: 50px;
 
   font-weight: 700;
@@ -273,7 +269,8 @@ h2 { /* Заголовок во всех секциях одинаковый, п
 }
 
 .team-member {
-  background: #fff;
+  width: 270px;
+  background: var(--white-c);
   box-shadow: 0px 1px 3px rgba(0,0,0,.12), 0px 1px 1px rgba(0,0,0,.14), 0px 2px 1px rgba(0,0,0,.2);
   border-radius: 0px 0px 4px 4px;
 }
@@ -293,7 +290,7 @@ h2 { /* Заголовок во всех секциях одинаковый, п
   color: var(--text-c-1);
 }
 
-.team-member-info h3 {
+.team-member-info h2 {
   margin-bottom: 10px;
 }
 
@@ -312,30 +309,31 @@ h2 { /* Заголовок во всех секциях одинаковый, п
   justify-content: space-between;
 }
 
-.socials button,
-.join-socials button { /* Применяем и для кнопок в подвале */
-  width: 44px;
-  height: 44px;
+.socials a,
+.join-socials a { /* Применяем и для кнопок в подвале */
   padding: 0;
+  pointer-events: none; /* Хочу, чтобы ссылка работала только при наведении на кружок */
   display: block;
   border: none;
   background-color: transparent;
 }
 
-.socials button use {
-  cursor: pointer;
+.socials use {
+  pointer-events: all;
   fill: transparent;
   color: var(--light-gray2);
 }
 
-.socials button use:hover {
-  fill: var(--blue-c);
-  color: #fff;
+.socials use:hover,
+.socials use:focus {
+  fill: var(--prima-c);
+  color: var(--white-c);
 }
 
 /* Regular Customers */
 
-.clients-section li {
+.clients-section a {
+  display: block;
   cursor: pointer;
   padding: 16px 32px;
   /* outline потому, что border в 1px некорректно задаёт адаптивную ширину в ff */
@@ -345,9 +343,9 @@ h2 { /* Заголовок во всех секциях одинаковый, п
   fill: var(--light-gray2);
 }
 
-.clients-section li:hover {
-  fill: var(--blue-c);
-  outline-color: var(--blue-c);
+.clients-section a:hover {
+  fill: var(--prima-c);
+  outline-color: var(--prima-c);
 }
 
 
@@ -360,14 +358,15 @@ footer {
 }
 
 footer > .logo {
-  color: #fff;
+  display: block;
+  color: var(--white-c);
 }
 
 footer > address {
   letter-spacing: .03em;
   line-height: 1.715;
   margin-top: 20px;
-  color: #fff;
+  color: var(--white-c);
 }
 
 footer > address li { /* Эти блоки нужны из-за косяка в эскизе */
@@ -378,12 +377,10 @@ footer > address li:last-child {
   margin-bottom: 0;
 }
 
-footer a {
-  display: inline;
-  text-decoration: none;
-  font-style: normal;
+footer > address a {
   letter-spacing: .03em;
-  color: rgba(255,255,255,.6);
+  color: var(--white-c);
+  opacity: 60%;
 }
 
 .join-socials {
@@ -398,7 +395,7 @@ footer a {
   line-height: 1.143;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--white-c);
 }
 
 .join-socials ul {
@@ -410,14 +407,15 @@ footer a {
   margin-right: 10px;
 }
 
-.join-socials button {
-  cursor: pointer;
+.join-socials use {
+  pointer-events: all;
   fill: rgba(255,255,255,.1);
-  color: #fff;
+  color: var(--white-c);
 }
 
-.join-socials button:hover {
-  fill: var(--blue-c);
+.join-socials use:hover,
+.join-socials use:focus {
+  fill: var(--prima-c);
 }
 
 
@@ -446,22 +444,24 @@ footer a {
   background-color: var(--light-gray);
 }
 
-
-.proj-filter button.selected {
-  background-color: var(--blue-c);
-  color: #fff;
+.proj-filter button:hover,
+.proj-filter button:focus {
+  background-color: var(--light-gray3);
+  box-shadow: 0px 3px 1px rgba(0,0,0,.1), 0px 1px 2px rgba(0,0,0,.08), 0px 2px 2px rgba(0,0,0,.12);
 }
 
-.proj-filter button.selected,
-.proj-filter button:hover {
+
+.proj-filter button.selected {
+  background-color: var(--prima-c);
   box-shadow: 0px 3px 1px rgba(0,0,0,.1), 0px 1px 2px rgba(0,0,0,.08), 0px 2px 2px rgba(0,0,0,.12);
+  color: var(--white-c);
 }
 
 /* Single project */
 
 .project {
-  box-shadow:inset 0px 0px 0px 1px #eee; /* 1px border inside the box */
-  cursor: pointer;
+  width: 370px;
+  box-shadow:inset 0px 0px 0px 1px var(--border-c2); /* 1px border inside the box */
 }
 
 .project img {
@@ -472,7 +472,7 @@ footer a {
   box-shadow: 0px 1px 1px rgba(0,0,0,.12), 0px 4px 4px rgba(0,0,0,.06), 1px 4px 6px rgba(0,0,0,.16);
 }
 
-.project > div {
+.project div {
   padding: 20px 24px;
   font-weight: 700;
   font-size: 18px;
@@ -480,7 +480,7 @@ footer a {
   letter-spacing: 0.06em;
 }
 
-.project h3 {
+.project h2 {
   margin-bottom: 4px;
   color: var(--text-c-1);
 }
