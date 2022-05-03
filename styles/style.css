@@ -501,16 +501,12 @@ footer > address a {
   background-color: var(--light-gray);
   transition:
     background-color var(--anim-speed) var(--anim-fn),
-    box-shadow var(--anim-speed) var(--anim-fn);
+    box-shadow var(--anim-speed) var(--anim-fn),
+    color var(--anim-speed) var(--anim-fn);
 }
 
 .proj-filter button:hover,
-.proj-filter button:focus {
-  background-color: var(--light-gray3);
-  box-shadow: 0px 3px 1px rgba(0,0,0,.1), 0px 1px 2px rgba(0,0,0,.08), 0px 2px 2px rgba(0,0,0,.12);
-}
-
-
+.proj-filter button:focus,
 .proj-filter button.selected {
   background-color: var(--prima-c);
   box-shadow: 0px 3px 1px rgba(0,0,0,.1), 0px 1px 2px rgba(0,0,0,.08), 0px 2px 2px rgba(0,0,0,.12);
