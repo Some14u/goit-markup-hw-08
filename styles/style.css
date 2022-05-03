@@ -34,6 +34,15 @@ body {
   background-color: var(--white-c);
 }
 
+.container {
+  width: 1200px;
+  padding-left: 15px; /* для узких экранов шириной в 1200 */
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
 button[type="button"] {
   text-align: center;
   font-family: 'Roboto', sans-serif;
@@ -44,13 +53,7 @@ button[type="button"] {
   border-radius: 4px;
 }
 
-.container {
-  width: 1200px;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-left: auto;
-  margin-right: auto;
-}
+
 
 .section {
   padding-top: 94px;
@@ -93,7 +96,6 @@ header {
 }
 
 header .container {
-  height: 100%;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -230,11 +232,11 @@ header .address a {
   background-color: var(--prima-c2);
 }
 
+
 /* About us */
 
 .features {
-  --rows: 4;
-  margin-bottom: 94px;
+  --rows: 4; /* Количество колонок */
 }
 
 .feature {
@@ -256,7 +258,7 @@ header .address a {
   fill: var(--prima-c);
 }
 
-.feature > h2 {
+.feature > h3 {
   margin-bottom: 10px;
   font-weight: 700;
   line-height: calc(16 / 14);
@@ -271,7 +273,7 @@ header .address a {
   color: var(--text-c-2);
 }
 
-h1 { /* Заголовок во всех секциях одинаковый, поэтому без селектора */
+.section h2 {
   margin-bottom: 50px;
 
   font-weight: 700;
@@ -280,6 +282,13 @@ h1 { /* Заголовок во всех секциях одинаковый, п
   text-align: center;
   letter-spacing: .03em;
   color: var(--text-c-1);
+}
+
+
+/* Our targets */
+
+.our-targets-section {
+  padding-top: 0px;
 }
 
 .our-targets img {
@@ -335,7 +344,7 @@ h1 { /* Заголовок во всех секциях одинаковый, п
   color: var(--text-c-1);
 }
 
-.team-member-info h2 {
+.team-member-info h3 {
   margin-bottom: 10px;
 }
 
@@ -396,8 +405,8 @@ h1 { /* Заголовок во всех секциях одинаковый, п
 }
 
 .clients-section a:hover {
-  outline-color: var(--prima-c);
   fill: var(--prima-c);
+  outline-color: var(--prima-c);
 }
 
 
@@ -409,27 +418,27 @@ footer {
   background-color: rgb(var(--gray-bg));
 }
 
-footer > .logo {
+footer .logo {
   display: block;
   color: var(--white-c);
 }
 
-footer > address {
+footer address {
   letter-spacing: .03em;
   line-height: calc(24 / 14);
   margin-top: 20px;
   color: var(--white-c);
 }
 
-footer > address li { /* Эти блоки нужны из-за косяка в эскизе */
+footer address li { /* Эти блоки нужны из-за косяка в эскизе */
   height: 1.5em; /* Указано так, чтоб масштабировалось, если изменят размер шрифта */
   margin-bottom: 9px;
 }
-footer > address li:last-child {
+footer address li:last-child {
   margin-bottom: 0;
 }
 
-footer > address a {
+footer address a {
   letter-spacing: .03em;
   color: var(--white-c);
   opacity: 60%;
@@ -509,14 +518,13 @@ footer > address a {
 .proj-filter button:focus,
 .proj-filter button.selected {
   background-color: var(--prima-c);
-  box-shadow: 0px 3px 1px rgba(0,0,0,.1), 0px 1px 2px rgba(0,0,0,.08), 0px 2px 2px rgba(0,0,0,.12);
   color: var(--white-c);
+  box-shadow: 0px 3px 1px rgba(0,0,0,.1), 0px 1px 2px rgba(0,0,0,.08), 0px 2px 2px rgba(0,0,0,.12);
 }
 
 /* Single project */
 
 .project {
-  display: block;
   width: 370px;
   background-color: var(--white-c);
   transition: box-shadow var(--anim-speed) var(--anim-fn);
@@ -573,7 +581,7 @@ footer > address a {
   border-right: 1px solid var(--border-c2);
 }
 
-.project h2 {
+.project h3 {
   margin-bottom: 4px;
   color: var(--text-c-1);
 }
@@ -633,25 +641,18 @@ footer > address a {
   height: 30px;
 
   background-color: var(--white-c);
+  fill: var(--black-c);
   border: 1px solid rgba(0,0,0, 0.1);
   border-radius: 15px;
 
-  transition:
-    fill var(--anim-speed) var(--anim-fn),
-    border-color var(--anim-speed) var(--anim-fn),
-    background-color var(--anim-speed) var(--anim-fn),
-    box-shadow var(--anim-speed) var(--anim-fn);
+  transition: fill var(--anim-speed) var(--anim-fn);
 }
 
 .modal-window .close-button:hover,
 .modal-window .close-button:focus {
-  fill: var(--white-c);
-  border-color: transparent;
-  background-color: var(--prima-c);
-  box-shadow: 0px 3px 1px rgba(0,0,0,.1), 0px 1px 2px rgba(0,0,0,.08), 0px 2px 2px rgba(0,0,0,.12);
+  fill: var(--prima-c);
 }
 
 .modal-window .close-button svg {
   margin: 0 auto;
 }
-
