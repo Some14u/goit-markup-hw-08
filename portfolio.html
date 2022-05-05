@@ -172,20 +172,22 @@
     <!-- Footer section -->
     <footer>
       <div class="container">
-        <a class="logo" href=""><span>Web</span>Studio</a>
-        <address class="address">
-          <ul>
-            <li>
-              <p>г. Киев, пр-т Леси Украинки, 26</p>
-            </li>
-            <li>
-              <a class="email" href="mailto:info@example.com">info@example.com</a>
-            </li>
-            <li>
-              <a class="phone" href="tel:+380991111111">+38&nbsp;099&nbsp;111&nbsp;11&nbsp;11</a>
-            </li>
-          </ul>
-        </address>
+        <div class="footer-left-part">
+          <a class="logo" href=""><span>Web</span>Studio</a>
+          <address class="address">
+            <ul>
+              <li>
+                <p>г. Киев, пр-т Леси Украинки, 26</p>
+              </li>
+              <li>
+                <a class="email" href="mailto:info@example.com">info@example.com</a>
+              </li>
+              <li>
+                <a class="phone" href="tel:+380991111111">+38&nbsp;099&nbsp;111&nbsp;11&nbsp;11</a>
+              </li>
+            </ul>
+          </address>
+        </div>
         <div class="join-socials">
           <div>Присоединяйтесь</div>
           <ul>
@@ -219,6 +221,18 @@
             </li>
           </ul>
         </div>
+        <form class="subscribe" method="post" action="javascript:void(0);">
+          <div>Подпишитесь на рассылку</div>
+          <div>
+            <input type="email" name="subscribe" id="subscribe" required placeholder="E-mail" />
+            <button type="submit">
+              Подписаться
+              <svg width="24px" height="24px">
+                <use href="images/icons.svg#send"></use>
+              </svg>
+            </button>
+          </div>
+        </form>
       </div>
     </footer>
   </body>

@@ -6,20 +6,23 @@
 
 :root {
   background-color: #e5e5e5;
-  --main-accent-color: 33, 150, 243;
-  --prima-c: rgb(var(--main-accent-color));
+  --prima-c-values: 33, 150, 243;
+  --prima-c: rgb(var(--prima-c-values));
   --prima-c2: #188ce8;
   --gray-bg: 47, 48, 58;
   --light-gray: #f5f4fa;
   --light-gray2: #afb1b8;
   --light-gray3: #eceaef;
   --gray-c: rgba(47, 48, 58, 0.8);
-  --white-c: #fff;
+  --white-c-values: 255, 255, 255;
+  --white-c: rgb(var(--white-c-values));
   --black-c: #000;
   --border-c1: #ececec;
   --border-c2: #eee;
-  --text-c-1: #212121;
-  --text-c-2: #757575;
+  --text-c-1-values: 21, 21, 21;
+  --text-c-1: rgb(var(--text-c-1-values));
+  --text-c-2-values: 117, 117, 117;
+  --text-c-2: rgb(var(--text-c-2-values));;
   --spacer: 30px;
   --anim-speed: 250ms;
   --anim-fn: cubic-bezier(0.4, 0, 0.2, 1);
@@ -43,7 +46,8 @@ body {
 }
 
 
-button[type="button"] {
+button[type="button"],
+button[type="submit"] {
   text-align: center;
   font-family: 'Roboto', sans-serif;
   font-style: normal;
@@ -62,10 +66,14 @@ button[type="button"] {
 
 .hidden {
   position: absolute;
-  left: -10000px;
-  top: auto;
   width: 1px;
   height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
   overflow: hidden;
 }
 
@@ -404,7 +412,8 @@ header .address a {
     fill var(--anim-speed) var(--anim-fn);
 }
 
-.clients-section a:hover {
+.clients-section a:hover,
+.clients-section a:focus {
   fill: var(--prima-c);
   outline-color: var(--prima-c);
 }
@@ -414,8 +423,18 @@ header .address a {
 
 footer {
   padding: 60px 0;
-  position: relative;
   background-color: rgb(var(--gray-bg));
+}
+
+footer div.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.footer-left-part {
+  width: 231px;
+  margin-right: 70px;
 }
 
 footer .logo {
@@ -448,9 +467,8 @@ footer address a {
 }
 
 .join-socials {
-  position: absolute;
-  top: 72px;
-  left: 516px;
+  margin-top: 15px;
+  margin-right: 93px;
 }
 
 .join-socials > div {
@@ -484,7 +502,75 @@ footer address a {
   fill: var(--prima-c);
 }
 
+.subscribe {
+  margin-top: 12px;
+}
 
+.subscribe > div {
+  margin-bottom: 20px;
+  font-weight: 700;
+  line-height: calc(16 / 14);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--white-c);
+  display: flex;
+}
+
+.subscribe input {
+  background: transparent;
+  width: 358px;
+  padding: 14px 15px;
+  margin-right: 12px;
+
+  border: 1px solid rgba(var(--white-c-values), 0.3);
+  border-radius: 4px;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: calc(20 / 16);
+  letter-spacing: 0.03em;
+  color: var(--white-c);
+
+  transition: border-color var(--anim-speed) var(--anim-fn);
+
+}
+
+.subscribe input::placeholder {
+  color: rgba(var(--white-c-values), 0.6);
+}
+
+.subscribe input:hover,
+.subscribe input:focus {
+  border-color: var(--prima-c);
+  outline: none; /* Убираем фокус браузера */
+}
+
+.subscribe button {
+  min-width: 200px;
+  padding: 10px 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  
+  background-color: var(--prima-c);
+  color: var(--white-c);
+  fill: var(--white-c);
+
+  transition: background-color var(--anim-speed) var(--anim-fn);
+}
+
+.subscribe button svg {
+  margin-left: 10px;
+}
+
+.subscribe button:hover,
+.subscribe button:focus {
+  background-color: var(--prima-c2);
+}
 
 
 /* ---------------------- Portfolio ----------------------- */
@@ -551,7 +637,7 @@ footer address a {
   right: 0;
   padding: 63px 24px;
 
-  background-color: rgba(var(--main-accent-color), 0.9);
+  background-color: rgba(var(--prima-c-values), 0.9);
   color: var(--white-c);
   
   font-size: 18px;
@@ -595,7 +681,9 @@ footer address a {
 }
 
 
-/* Modal window */
+
+
+/* ---------------------- Modal window ----------------------- */
 
 .backdrop {
   position: fixed;
@@ -626,9 +714,13 @@ footer address a {
   width: 528px;
   height: 581px;
   transform: translate(-50%, -50%);
+  padding: 40px;
+
+
   background-color: var(--white-c);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+
   transition: transform var(--anim-speed) var(--anim-fn);
 }
 
@@ -655,4 +747,156 @@ footer address a {
 
 .modal-window .close-button svg {
   margin: 0 auto;
+}
+
+.order-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.order-form h2 {
+  margin-bottom: 12px;
+
+  font-weight: 700;
+  font-size: 20px;
+  line-height: calc(23 / 20);
+  text-align: center;
+  letter-spacing: 0.03em;
+
+  color: var(--text-c-1);
+}
+
+.order-form label {
+  user-select: none;
+  position: relative;
+  font-size: 12px;
+  line-height: calc(14 / 12);
+  letter-spacing: 0.01em;
+
+  fill: var(--text-c-1);
+  color: var(--text-c-2);
+  border-color: rgba(var(--text-c-1-values), 0.2);
+
+  transition:
+    border-color var(--anim-speed) var(--anim-fn),
+    fill var(--anim-speed) var(--anim-fn);
+}
+
+.order-form .form-name svg,
+.order-form .form-phone svg,
+.order-form .form-email svg {
+  position: absolute;
+  bottom: 21px;
+  left: 12px;
+}
+
+.order-form input {
+  width: 100%;
+  height: 40px;
+  margin-top: 4px;
+  margin-bottom: 10px;
+  appearance: none;
+  padding-left: calc(12px + 18px + 12px);
+  border-width: 1px;
+  border-style: solid;
+  border-color: inherit;
+  border-radius: 4px;
+  outline: none; /* Убираем фокус браузера */
+}
+
+.order-form textarea {
+  resize: none;
+  width: 100%;
+  height: 120px;
+  margin-top: 4px;
+  margin-bottom: 10px;
+  appearance: none;
+  padding: 12px 16px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: inherit;
+  border-radius: 4px;
+  outline: none; /* Убираем фокус браузера */
+
+  line-height: calc(14 / 12);
+  letter-spacing: 0.01em;
+}
+
+.order-form textarea::placeholder {
+  color: rgba(var(--text-c-2-values), 0.5);
+}
+
+.order-form label:hover { /* При hover подсвечиваем только иконки */
+  fill: var(--prima-c);
+}
+
+.order-form label:focus-within { /* При получении фокуса рамка и заливка иконок */
+  fill: var(--prima-c);
+  border-color: var(--prima-c);
+}
+
+.order-form .form-terms {
+  margin-top: 10px;
+  margin-bottom: 30px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 14px;
+  line-height: calc(24 / 14);
+  letter-spacing: 0.03em;
+}
+
+.order-form .checkmark { /* Стандартное состояние: чёрная рамка */
+  margin-right: 8px;
+  --cb-on: transparent;
+  --cb-off: var(--text-c-1);
+  color: transparent;
+}
+
+.order-form .form-terms:hover .checkmark, /* focus/hover: синяя рамка */
+.order-form .terms-cb:focus + .checkmark {
+  --cb-off: var(--prima-c);
+}
+
+.order-form .terms-cb:checked + .checkmark{ /* checked и без фокуса: галка на синем фоне */
+  --cb-on: var(--prima-c);
+  --cb-off: transparent;
+  color: var(--white-c);
+}
+
+.order-form .terms-cb:checked + .checkmark:hover, /* checked и focus/hover: слегка затемнённый синий */
+.order-form .terms-cb:checked:focus + .checkmark {
+  --cb-on: var(--prima-c2);
+}
+
+.order-form .form-terms a {
+  text-decoration: underline;
+  color: var(--prima-c)
+}
+
+.order-form .form-terms a:hover,
+.order-form .form-terms a:focus {
+  color: var(--prima-c2)
+}
+
+.order-form .form-submit-btn {
+  width: fit-content;
+  min-width: 200px;
+  align-self: center;
+  padding: 10px 50px;
+
+  font-weight: 700;
+  line-height: calc(30 / 16);
+  letter-spacing: 0.06em;
+
+  background-color: var(--prima-c);
+  color: var(--white-c);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+.order-form .form-submit-btn:hover,
+.order-form .form-submit-btn:focus {
+  background-color: var(--prima-c2);
 }
