@@ -429,7 +429,7 @@ footer {
 footer div.container {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
+  align-items: baseline;
 }
 
 .footer-left-part {
@@ -467,11 +467,10 @@ footer address a {
 }
 
 .join-socials {
-  margin-top: 15px;
-  margin-right: 93px;
+  margin-right: auto;
 }
 
-.join-socials > div {
+.join-socials > p {
   margin-bottom: 20px;
   font-weight: 700;
   line-height: calc(16 / 14);
@@ -503,16 +502,20 @@ footer address a {
 }
 
 .subscribe {
-  margin-top: 12px;
+  /* margin-top: 12px; */
 }
 
-.subscribe > div {
-  margin-bottom: 20px;
+.subscribe > label {
+  display: inline-block;
+  padding-bottom: 20px; /*вместо margin чтоб передавался фокус во всей области */
   font-weight: 700;
   line-height: calc(16 / 14);
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: var(--white-c);
+}
+
+.subscribe > div {
   display: flex;
 }
 
@@ -610,13 +613,14 @@ footer address a {
 
 /* Single project */
 
-.project {
+.project > a {
+  display: block;
   width: 370px;
-  background-color: var(--white-c);
   transition: box-shadow var(--anim-speed) var(--anim-fn);
 }
 
-.project:hover {
+.project > a:hover,
+.project > a:focus {
   box-shadow: 0px 1px 1px rgba(0,0,0,.12), 0px 4px 4px rgba(0,0,0,.06), 1px 4px 6px rgba(0,0,0,.16);
 }
 
@@ -754,7 +758,7 @@ footer address a {
   flex-direction: column;
 }
 
-.order-form h2 {
+.order-form > p {
   margin-bottom: 12px;
 
   font-weight: 700;
