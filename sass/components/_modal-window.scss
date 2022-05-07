@@ -1,0 +1,43 @@
+.modal-window {
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  width: var(--modalWindowWidth, 528px);
+  height: var(--modalWindowHeight, 581px);
+  transform: translate(-50%, -50%);
+  padding: 40px;
+
+  background-color: var(--white-c);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+
+  transition: transform var(--anim-speed) var(--anim-fn);
+
+  &--hidden {
+    transform: translate(-50%, 100vh) rotate(-180deg) scale(2);
+  }
+}
+
+.modal-window__close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+
+  background-color: var(--white-c);
+  fill: var(--black-c);
+  border: 1px solid rgba(0,0,0, 0.1);
+  border-radius: 15px;
+
+  transition: fill var(--anim-speed) var(--anim-fn);
+
+  &:hover, &:focus {
+    fill: var(--prima-c);
+  }
+}
+
+.modal-window__close-icon {
+  margin: 0 auto;
+}

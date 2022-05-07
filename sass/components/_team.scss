@@ -1,0 +1,38 @@
+.team {
+  background-color: var(--light-gray);
+}
+
+.team-member {
+  width: var(--teamMemberCardWidth, 270px);
+  background: var(--white-c);
+  box-shadow: 0px 1px 3px rgba(0,0,0,.12), 0px 1px 1px rgba(0,0,0,.14), 0px 2px 1px rgba(0,0,0,.2);
+  border-radius: 0px 0px 4px 4px;
+}
+
+.team-member__img {
+  overflow: hidden;
+}
+
+.team-member__info {
+  padding: var(--spacer) 32px;
+  font-weight: 500;
+  font-size: relFont(16px);
+  line-height: calc(19 / 16);
+  text-align: center;
+  letter-spacing: .03em;
+  color: var(--text-c-1);
+}
+
+.team-member__name {
+  margin-bottom: 10px;
+}
+
+.team-member__role {
+  margin-bottom: 16px;
+  font-weight: 400; /* Нужно оставить, переопределяет предыдущее правило */
+  color: var(--text-c-2);
+}
+
+.team-member-info *:last-child {
+  margin-bottom: 0;
+}

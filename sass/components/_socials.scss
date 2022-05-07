@@ -1,0 +1,27 @@
+.socials {
+  @include flex-centered;
+}
+
+.socials__item {
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+}
+
+.socials__btn {
+  pointer-events: none; // Хочу, чтобы ссылка работала только при наведении на кружок
+}
+
+.socials__btn-icon-res {
+  pointer-events: all;
+  fill: transparent;
+  color: var(--light-gray2);
+  transition:
+    color var(--anim-speed) var(--anim-fn),
+    fill var(--anim-speed) var(--anim-fn);
+
+  &:hover, .socials__btn:focus & {
+    fill: var(--prima-c);
+    color: var(--white-c);
+  }
+}

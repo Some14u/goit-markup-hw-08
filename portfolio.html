@@ -7,34 +7,40 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles/reset.css" />
-    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css" />
+    <link rel="stylesheet" href="css/main.min.css" />
   </head>
 
   <body>
     <!-- Header section -->
-    <header>
-      <div class="container">
-        <a class="logo" href="#"><span>Web</span>Studio</a>
+    <header class="header">
+      <div class="container header__container">
+        <a class="logo header__logo" href="#"> <span class="logo__part">Web</span>Studio</a>
         <nav class="main-menu">
-          <ul>
-            <li><a href="index.html">Студия</a></li>
-            <li class="selected"><a href="portfolio.html">Портфолио</a></li>
-            <li><a href="contacts.html">Контакты</a></li>
+          <ul class="main-menu__list">
+            <li class="main-menu__item">
+              <a class="main-menu__link" href="index.html">Студия</a>
+            </li>
+            <li class="main-menu__item main-menu__item--selected">
+              <a class="main-menu__link" href="portfolio.html">Портфолио</a>
+            </li>
+            <li class="main-menu__item">
+              <a class="main-menu__link" href="contacts.html">Контакты</a>
+            </li>
           </ul>
         </nav>
-        <ul class="address">
-          <li>
-            <a class="email" href="mailto:info@devstudio.com">
-              <svg width="16px" height="12px">
+        <ul class="header__address-list">
+          <li class="header__address-item">
+            <a class="header__address-link" href="mailto:info@devstudio.com">
+              <svg class="header__address-icon" width="16px" height="12px">
                 <use href="images/icons.svg#envelope"></use>
               </svg>
               info@devstudio.com
             </a>
           </li>
-          <li>
-            <a class="phone" href="tel:+380961111111">
-              <svg width="10px" height="16px">
+          <li class="header__address-item">
+            <a class="header__address-link" href="tel:+380961111111">
+              <svg class="header__address-icon" width="10px" height="16px">
                 <use href="images/icons.svg#smartphone"></use>
               </svg>
               +38&nbsp;096&nbsp;111&nbsp;11&nbsp;11
@@ -44,124 +50,134 @@
       </div>
     </header>
     <!-- Main section -->
-    <main class="portfolio-main section">
+    <main class="main-wrapper">
       <!-- Projects section -->
-      <section class="projects">
+      <section class="projects section">
         <div class="container">
-          <h1 class="hidden">Портфолио</h1>
-          <ul class="proj-filter">
-            <li><button class="proj-filter-all selected" type="button">Все</button></li>
-            <li><button class="proj-filter-web" type="button">Веб-сайты</button></li>
-            <li><button class="proj-filter-app" type="button">Приложения</button></li>
-            <li><button class="proj-filter-design" type="button">Дизайн</button></li>
-            <li><button class="proj-filter-mark" type="button">Маркетинг</button></li>
+          <h1 class="projects__title hidden">Портфолио</h1>
+          <ul class="projects__filter">
+            <li class="projects__filter-item">
+              <button class="button projects__filter-btn projects__filter-btn--selected" id="proj-filter-all" type="button">Все</button>
+            </li>
+            <li class="projects__filter-item">
+              <button class="button projects__filter-btn" id="proj-filter-web" type="button">Веб-сайты</button>
+            </li>
+            <li class="projects__filter-item">
+              <button class="button projects__filter-btn" id="proj-filter-app" type="button">Приложения</button>
+            </li>
+            <li class="projects__filter-item">
+              <button class="button projects__filter-btn" id="proj-filter-design" type="button">Дизайн</button>
+            </li>
+            <li class="projects__filter-item">
+              <button class="button projects__filter-btn" id="proj-filter-mark" type="button">Маркетинг</button>
+            </li>
           </ul>
-          <ul class="wrappable">
+          <ul class="projects__list wrappable">
             <li class="project">
-              <a href="">
-                <div class="img-part">
-                  <img src="images/project1.jpg" alt="Проект 1" width="370" height="294" />
-                  <div class="overlay">Ресурс предлагает комплексные предложения с разным уровнем функционала и сервисов. Всё это позволит посетителю получить исчерпывающие сведения о компании или частном лице.</div>
+              <a class="project__link" href="">
+                <div class="project__img-wrapper">
+                  <img class="project__img" src="images/project1.jpg" alt="Проект 1" width="370" height="294" />
+                  <div class="project__img-overlay">Ресурс предлагает комплексные предложения с разным уровнем функционала и сервисов. Всё это позволит посетителю получить исчерпывающие сведения о компании или частном лице.</div>
                 </div>
-                <div class="description">
-                  <h3>Технокряк</h3>
-                  <p>Веб-сайт</p>
+                <div class="project__description">
+                  <h3 class="project__name">Технокряк</h3>
+                  <p class="project__type">Веб-сайт</p>
                 </div>
               </a>
             </li>
             <li class="project">
-              <a href="">
-                <div class="img-part">
-                  <img src="images/project2.jpg" alt="Проект 2" width="370" height="294" />
-                  <div class="overlay">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate ab voluptate cum! Ab, quia nesciunt, sequi aut id voluptatem earum et cumque illum excepturi autem iusto iure.</div>
+              <a class="project__link" href="">
+                <div class="project__img-wrapper">
+                  <img class="project__img" src="images/project2.jpg" alt="Проект 2" width="370" height="294" />
+                  <div class="project__img-overlay">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate ab voluptate cum! Ab, quia nesciunt, sequi aut id voluptatem earum et cumque illum excepturi autem iusto iure.</div>
                 </div>
-                <div class="description">
-                  <h3>Постер New Orlean vs Golden Star</h3>
-                  <p>Дизайн</p>
-                </div>
-              </a>
-            </li>
-            <li class="project">
-              <a href="">
-                <div class="img-part">
-                  <img src="images/project3.jpg" alt="Проект 3" width="370" height="294" />
-                  <div class="overlay">Sint consectetur, beatae quae quos debitis eveniet minima, blanditiis totam optio, vero soluta doloribus impedit perspiciatis eos repellat harum perferendis dolores animi nobis.</div>
-                </div>
-                <div class="description">
-                  <h3>Ресторан Seafood</h3>
-                  <p>Приложение</p>
+                <div class="project__description">
+                  <h3 class="project__name">Постер New Orlean vs Golden Star</h3>
+                  <p class="project__type">Дизайн</p>
                 </div>
               </a>
             </li>
             <li class="project">
-              <a href="">
-                <div class="img-part">
-                  <img src="images/project4.jpg" alt="Проект 4" width="370" height="294" />
-                  <div class="overlay">Exercitationem aliquid? Corporis esse ab unde aliquam alias eius explicabo iure ipsum atque quod? Veritatis autem quaerat repellat ducimus unde doloremque.</div>
+              <a class="project__link" href="">
+                <div class="project__img-wrapper">
+                  <img class="project__img" src="images/project3.jpg" alt="Проект 3" width="370" height="294" />
+                  <div class="project__img-overlay">Sint consectetur, beatae quae quos debitis eveniet minima, blanditiis totam optio, vero soluta doloribus impedit perspiciatis eos repellat harum perferendis dolores animi nobis.</div>
                 </div>
-                <div class="description">
-                  <h3>Проект Prime</h3>
-                  <p>Маркетинг</p>
-                </div>
-              </a>
-            </li>
-            <li class="project">
-              <a href="">
-                <div class="img-part">
-                  <img src="images/project5.jpg" alt="Проект 5" width="370" height="294" />
-                  <div class="overlay">Exercitationem itaque numquam illum voluptates at non sit, consequatur saepe, aspernatur veniam rerum maxime, corrupti esse cupiditate dolorum nesciunt libero?</div>
-                </div>
-                <div class="description">
-                  <h3>Проект Boxes</h3>
-                  <p>Приложение</p>
+                <div class="project__description">
+                  <h3 class="project__name">Ресторан Seafood</h3>
+                  <p class="project__type">Приложение</p>
                 </div>
               </a>
             </li>
             <li class="project">
-              <a href="">
-                <div class="img-part">
-                  <img src="images/project6.jpg" alt="Проект 6" width="370" height="294" />
-                  <div class="overlay">Quis dolore minus aliquid harum dolor incidunt cumque perferendis animi consequatur itaque sint vero, qui voluptatibus hic maiores provident exercitationem.</div>
+              <a class="project__link" href="">
+                <div class="project__img-wrapper">
+                  <img class="project__img" src="images/project4.jpg" alt="Проект 4" width="370" height="294" />
+                  <div class="project__img-overlay">Exercitationem aliquid? Corporis esse ab unde aliquam alias eius explicabo iure ipsum atque quod? Veritatis autem quaerat repellat ducimus unde doloremque.</div>
                 </div>
-                <div class="description">
-                  <h3>Inspiration has no Borders</h3>
-                  <p>Веб-сайт</p>
-                </div>
-              </a>
-            </li>
-            <li class="project">
-              <a href="">
-                <div class="img-part">
-                  <img src="images/project7.jpg" alt="Проект 7" width="370" height="294" />
-                  <div class="overlay">At tempore ex, ratione nisi totam? Consectetur exercitationem atque molestias deserunt delectus vitae, alias placeat quam eligendi excepturi voluptates omnis.</div>
-                </div>
-                <div class="description">
-                  <h3>Издание Limited Edition</h3>
-                  <p>Дизайн</p>
+                <div class="project__description">
+                  <h3 class="project__name">Проект Prime</h3>
+                  <p class="project__type">Маркетинг</p>
                 </div>
               </a>
             </li>
             <li class="project">
-              <a href="">
-                <div class="img-part">
-                  <img src="images/project8.jpg" alt="Проект 8" width="370" height="294" />
-                  <div class="overlay">Facilis quae aperiam, voluptate neque sunt sit, ipsa eum nihil similique, aliquid nulla impedit praesentium voluptates? Inventore repudiandae vitae ea eaque deleniti magni nostrum itaque.</div>
+              <a class="project__link" href="">
+                <div class="project__img-wrapper">
+                  <img class="project__img" src="images/project5.jpg" alt="Проект 5" width="370" height="294" />
+                  <div class="project__img-overlay">Exercitationem itaque numquam illum voluptates at non sit, consequatur saepe, aspernatur veniam rerum maxime, corrupti esse cupiditate dolorum nesciunt libero?</div>
                 </div>
-                <div class="description">
-                  <h3>Проект LAB</h3>
-                  <p>Маркетинг</p>
+                <div class="project__description">
+                  <h3 class="project__name">Проект Boxes</h3>
+                  <p class="project__type">Приложение</p>
                 </div>
               </a>
             </li>
             <li class="project">
-              <a href="">
-                <div class="img-part">
-                  <img src="images/project9.jpg" alt="Проект 9" width="370" height="294" />
-                  <div class="overlay">Nemo tempora ipsum neque praesentium, alias fugiat pariatur est quisquam blanditiis sunt iure nobis? Repellat voluptatibus illum impedit tenetur natus excepturi aliquid tempore.</div>
+              <a class="project__link" href="">
+                <div class="project__img-wrapper">
+                  <img class="project__img" src="images/project6.jpg" alt="Проект 6" width="370" height="294" />
+                  <div class="project__img-overlay">Quis dolore minus aliquid harum dolor incidunt cumque perferendis animi consequatur itaque sint vero, qui voluptatibus hic maiores provident exercitationem.</div>
                 </div>
-                <div class="description">
-                  <h3>Growing Business</h3>
-                  <p>Приложение</p>
+                <div class="project__description">
+                  <h3 class="project__name">Inspiration has no Borders</h3>
+                  <p class="project__type">Веб-сайт</p>
+                </div>
+              </a>
+            </li>
+            <li class="project">
+              <a class="project__link" href="">
+                <div class="project__img-wrapper">
+                  <img class="project__img" src="images/project7.jpg" alt="Проект 7" width="370" height="294" />
+                  <div class="project__img-overlay">At tempore ex, ratione nisi totam? Consectetur exercitationem atque molestias deserunt delectus vitae, alias placeat quam eligendi excepturi voluptates omnis.</div>
+                </div>
+                <div class="project__description">
+                  <h3 class="project__name">Издание Limited Edition</h3>
+                  <p class="project__type">Дизайн</p>
+                </div>
+              </a>
+            </li>
+            <li class="project">
+              <a class="project__link" href="">
+                <div class="project__img-wrapper">
+                  <img class="project__img" src="images/project8.jpg" alt="Проект 8" width="370" height="294" />
+                  <div class="project__img-overlay">Facilis quae aperiam, voluptate neque sunt sit, ipsa eum nihil similique, aliquid nulla impedit praesentium voluptates? Inventore repudiandae vitae ea eaque deleniti magni nostrum itaque.</div>
+                </div>
+                <div class="project__description">
+                  <h3 class="project__name">Проект LAB</h3>
+                  <p class="project__type">Маркетинг</p>
+                </div>
+              </a>
+            </li>
+            <li class="project">
+              <a class="project__link" href="">
+                <div class="project__img-wrapper">
+                  <img class="project__img" src="images/project9.jpg" alt="Проект 9" width="370" height="294" />
+                  <div class="project__img-overlay">Nemo tempora ipsum neque praesentium, alias fugiat pariatur est quisquam blanditiis sunt iure nobis? Repellat voluptatibus illum impedit tenetur natus excepturi aliquid tempore.</div>
+                </div>
+                <div class="project__description">
+                  <h3 class="project__name">Growing Business</h3>
+                  <p class="project__type">Приложение</p>
                 </div>
               </a>
             </li>
@@ -170,65 +186,65 @@
       </section>
     </main>
     <!-- Footer section -->
-    <footer>
-      <div class="container">
-        <div class="footer-left-part">
-          <a class="logo" href=""><span>Web</span>Studio</a>
-          <address class="address">
-            <ul>
-              <li>
-                <p>г. Киев, пр-т Леси Украинки, 26</p>
+    <footer class="footer">
+      <div class="container footer__container">
+        <div class="footer__left-part">
+          <a class="logo footer__logo" href=""><span class="logo__part">Web</span>Studio</a>
+          <address class="footer__address">
+            <ul class="footer__address-list">
+              <li class="footer__address-item">
+                <p class="footer__address-address">г. Киев, пр-т Леси Украинки, 26</p>
               </li>
-              <li>
-                <a class="email" href="mailto:info@example.com">info@example.com</a>
+              <li class="footer__address-item">
+                <a class="footer__address-link" href="mailto:info@example.com">info@example.com</a>
               </li>
-              <li>
-                <a class="phone" href="tel:+380991111111">+38&nbsp;099&nbsp;111&nbsp;11&nbsp;11</a>
+              <li class="footer__address-item">
+                <a class="footer__address-link" href="tel:+380991111111">+38&nbsp;099&nbsp;111&nbsp;11&nbsp;11</a>
               </li>
             </ul>
           </address>
         </div>
-        <div class="join-socials">
-          <p>Присоединяйтесь</p>
-          <ul>
-            <li>
-              <a class="instagram-btn" href="">
-                <svg width="44px" height="44px">
-                  <use href="images/icons.svg#instagram-btn"></use>
+        <div class="footer__socials">
+          <p class="footer__socials-title">Присоединяйтесь</p>
+          <ul class="socials">
+            <li class="socials__item">
+              <a class="socials__btn" href="">
+                <svg class="socials__btn-icon" width="44px" height="44px">
+                  <use class="socials__btn-icon-res footer__socials__btn-icon-res" href="images/icons.svg#instagram-btn"></use>
                 </svg>
               </a>
             </li>
-            <li>
-              <a class="twitter-btn" href="">
-                <svg width="44px" height="44px">
-                  <use href="images/icons.svg#twitter-btn"></use>
+            <li class="socials__item">
+              <a class="socials__btn" href="">
+                <svg class="socials__btn-icon" width="44px" height="44px">
+                  <use class="socials__btn-icon-res footer__socials__btn-icon-res" href="images/icons.svg#twitter-btn"></use>
                 </svg>
               </a>
             </li>
-            <li>
-              <a class="facebook-btn" href="">
-                <svg width="44px" height="44px">
-                  <use href="images/icons.svg#facebook-btn"></use>
+            <li class="socials__item">
+              <a class="socials__btn" href="">
+                <svg class="socials__btn-icon" width="44px" height="44px">
+                  <use class="socials__btn-icon-res footer__socials__btn-icon-res" href="images/icons.svg#facebook-btn"></use>
                 </svg>
               </a>
             </li>
-            <li>
-              <a class="linkedin-btn" href="">
-                <svg width="44px" height="44px">
-                  <use href="images/icons.svg#linkedin-btn"></use>
+            <li class="socials__item">
+              <a class="socials__btn" href="">
+                <svg class="socials__btn-icon" width="44px" height="44px">
+                  <use class="socials__btn-icon-res footer__socials__btn-icon-res" href="images/icons.svg#linkedin-btn"></use>
                 </svg>
               </a>
             </li>
           </ul>
         </div>
         <form class="subscribe" method="post" action="javascript:void(0);">
-          <label for="subscribe">Подпишитесь на рассылку</label>
-          <div>
-            <input type="email" name="subscribe" id="subscribe" required placeholder="E-mail" />
-            <button type="submit">
+          <label class="subscribe__title" for="subscribe">Подпишитесь на рассылку</label>
+          <div class="subscribe__wrapper">
+            <input class="subscribe__email" type="email" name="subscribe" id="subscribe" required placeholder="E-mail" />
+            <button class="button subscribe__button" type="submit">
               Подписаться
-              <svg width="24px" height="24px">
-                <use href="images/icons.svg#send"></use>
+              <svg class="subscribe__btn-icon" width="24px" height="24px">
+                <use class="subscribe__btn-icon-res" href="images/icons.svg#send"></use>
               </svg>
             </button>
           </div>

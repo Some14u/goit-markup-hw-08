@@ -3,6 +3,7 @@
     openModalBtn: document.querySelector("[data-modal-open]"),
     closeModalBtn: document.querySelector("[data-modal-close]"),
     modal: document.querySelector("[data-modal]"),
+    modals: document.querySelectorAll("[data-modal]")
   }
   refs.openModalBtn.addEventListener("click", toggleModal);
   refs.closeModalBtn.addEventListener("click", toggleModal);
@@ -12,6 +13,8 @@
   })
 
   function toggleModal(event) {
-    refs.modal.classList.toggle("is-hidden");
+    refs.modals.forEach(element => {
+      element.classList.toggle(element.classList[0] + "--hidden");
+    });
   }
 })();

@@ -1,0 +1,24 @@
+.targets--no-padding-top {
+  padding-top: 0px;
+}
+
+.targets__item {
+  position: relative;
+}
+
+.targets__overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 27px;
+  background-color: var(--targets-overlay-c);
+}
+
+.targets__desc {
+  font-weight: 700;
+  line-height: calc(16 / 14);
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--white-c);
+}

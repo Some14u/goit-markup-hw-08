@@ -1,0 +1,42 @@
+.order {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:center;
+  padding: 200px 0;
+
+  background-color: rgb(var(--gray-bg));
+  background-image: linear-gradient(rgba(var(--gray-bg),.4) 40%, rgba(var(--gray-bg),.4) 40%), url("../images/team-bg.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.order__text {
+  margin-bottom: var(--spacer);
+  font-weight: 900;
+  font-size: relFont(44px);
+  line-height: calc(60 / 44);
+  text-align: center;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--white-c);
+}
+
+.order__button {
+  min-width: 200px;
+  padding: 10px 20px;
+
+  font-weight: 700;
+  line-height: calc(30 / 16);
+  letter-spacing: .06em;
+
+  color: var(--white-c);
+  background-color: var(--prima-c);
+  box-shadow: 0px 4px 4px rgba(0,0,0,.15);
+
+  transition: background-color var(--anim-speed) var(--anim-fn);
+  &:hover, &:focus {
+    background-color: var(--prima-c2);
+  }
+}
+

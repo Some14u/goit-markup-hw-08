@@ -1,0 +1,62 @@
+.subscribe__title {
+  display: inline-block;
+  padding-bottom: 20px; // Вместо margin чтоб передавался фокус во всей области
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--white-c);
+}
+
+.subscribe__wrapper {
+  display: flex;
+}
+
+.subscribe__email {
+  background: transparent;
+  width: 358px;
+  padding: 14px 15px;
+  margin-right: 12px;
+
+  border: 1px solid rgba(var(--white-c-values), 0.3);
+  border-radius: 4px;
+
+  font-weight: 400;
+  font-size: relFont(16px);
+  line-height: calc(20 / 16);
+  letter-spacing: 0.03em;
+  color: var(--white-c);
+
+  transition: border-color var(--anim-speed) var(--anim-fn);
+
+  &::placeholder {
+    color: rgba(var(--white-c-values), 0.6);
+  }
+
+  &:hover, &:focus {
+    border-color: var(--prima-c);
+    outline: none; // Убираем фокус браузера
+  }
+}
+
+.subscribe__button {
+  min-width: 200px;
+  padding: 10px 20px;
+
+  @include flex-centered;
+
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  
+  background-color: var(--prima-c);
+  color: var(--white-c);
+  fill: var(--white-c);
+
+  transition: background-color var(--anim-speed) var(--anim-fn);
+
+  &:hover, &:focus {
+    background-color: var(--prima-c2);
+  }
+}
+
+.subscribe__btn-icon {
+  margin-left: 10px;
+}

@@ -1,0 +1,50 @@
+:root {
+  --containerWidth: 1200px;
+  --containerPadding: 15px;
+  --bodyWidth: calc(var(--containerWidth) + 400px);
+  --sectionPadding: 94px;
+  --sectionTitleMargin: 50px;
+  --spacer: 30px; // Ширина отступов между элементами
+
+  --featureRows: 4;
+  --featureMinWidth: 270px;
+  --teamMemberCardWidth: 270px;
+  --projectCardWidth: 370px;
+
+  --baseFontSize: 14px; // по умолчанию 14
+  --baseFontFamily: "Roboto", sans-serif;
+  --baseLetterSpacing: 0.03em;
+
+  --logoFontSize: 26px;
+
+  --modalWindowWidth: 528px;
+  --modalWindowHeight: 581px;
+
+
+  --anim-speed: 250ms;
+  --anim-fn: cubic-bezier(0.4, 0, 0.2, 1);
+
+
+  --background-c:#e5e5e5;
+  --prima-c-values: 33, 150, 243;
+  --prima-c: rgb(var(--prima-c-values));
+  --prima-c2: #188ce8;
+  --gray-bg: 47, 48, 58;
+  --light-gray: #f5f4fa;
+  --light-gray2: #afb1b8;
+  --light-gray3: #eceaef;
+  --targets-overlay-c: rgba(47, 48, 58, 0.8);
+  --white-c-values: 255, 255, 255;
+  --white-c: rgb(var(--white-c-values));
+  --black-c-values: 0, 0, 0;
+  --black-c: rgb(var(--black-c-values));
+  --border-c1: #ececec;
+  --border-c2: #eee;
+  --text-c-1-values: 21, 21, 21;
+  --text-c-1: rgb(var(--text-c-1-values));
+  --text-c-2-values: 117, 117, 117;
+  --text-c-2: rgb(var(--text-c-2-values));;
+  }
+
+
+

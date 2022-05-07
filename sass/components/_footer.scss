@@ -1,0 +1,62 @@
+.footer {
+  padding: 60px 0;
+  background-color: rgb(var(--gray-bg));
+}
+
+.footer__container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+
+.footer__left-part {
+  width: 231px; // Нужно из-за косяка в макете
+  margin-right: 70px;
+}
+
+.footer__logo {
+  display: block;
+  margin-bottom: 20px;
+  color: var(--white-c);
+}
+
+.footer__address {
+  font-style: normal;
+  line-height: calc(24 / 14);
+  color: var(--white-c);
+}
+
+.footer__address-item { // Эти блоки нужны из-за косяка в макете
+  height: 1.5em; // Указано так, чтоб масштабировалось, если изменят размер шрифта
+  margin-bottom: 9px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.footer__address-link {
+  color: rgba(var(--white-c-values),.6);
+  transition:
+    color var(--anim-speed) var(--anim-fn);
+
+  &:hover, &:focus {
+    color: var(--prima-c);
+  }
+}
+
+.footer__socials {
+  margin-right: auto;
+}
+
+.footer__socials-title {
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--white-c);
+}
+
+.footer__socials__btn-icon-res {
+  fill: rgba(var(--white-c-values),.1);
+  color: var(--white-c);
+}
