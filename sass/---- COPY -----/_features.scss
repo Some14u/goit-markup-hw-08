@@ -1,16 +1,12 @@
 .features__item {
-  width: 100%;
+  min-width: var(--featureMinWidth, 270px);
+  flex-basis: calc(100% / var(--featureRows) - var(--spacer));
 }
 
-.features__item:not(:last-child) {
-  // margin-bottom: var(--minorMargin);
-  // min-width: var(--featureMinWidth, 270px);
-  // flex-basis: calc(100% / var(--featureColumns) - var(--spacer));
-}
-
-.features__item-image-wrapper {
+.features__item-inner {
   padding: 25px 0px;
   margin-bottom: var(--spacer);
+  text-align: center;
   border-radius: 4px;
   background-color: var(--light-gray);
 }
@@ -23,9 +19,6 @@
 
 .features__item-name {
   margin-bottom: 10px;
-
-  text-align: center;
-
   font-weight: 700;
   text-transform: uppercase;
   color: var(--text-c-1);

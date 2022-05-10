@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>goit-markup-hw</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,37 +17,58 @@
     <header class="header">
       <div class="container header__container">
         <a class="logo header__logo" href="#"> <span class="logo__part">Web</span>Studio</a>
-        <nav class="main-menu">
-          <ul class="main-menu__list">
-            <li class="main-menu__item">
-              <a class="main-menu__link" href="index.html">Студия</a>
+        <div class="header__mobile-menu-container header__mobile-menu-container--hidden" data-mobile-menu>
+          <nav class="main-menu header__main-menu">
+            <ul class="main-menu__list">
+              <li class="main-menu__item">
+                <a class="main-menu__link" href="index.html">Студия</a>
+              </li>
+              <li class="main-menu__item main-menu__item--selected">
+                <a class="main-menu__link" href="portfolio.html">Портфолио</a>
+              </li>
+              <li class="main-menu__item">
+                <a class="main-menu__link" href="contacts.html">Контакты</a>
+              </li>
+            </ul>
+          </nav>
+          <ul class="header__address-list">
+            <li class="header__address-item">
+              <a class="header__address-link header__address-link--appearance-email" href="mailto:info@devstudio.com">
+                <svg class="header__address-icon" width="16" height="12">
+                  <use href="images/icons.svg#envelope" />
+                </svg>
+                info@devstudio.com
+              </a>
             </li>
-            <li class="main-menu__item main-menu__item--selected">
-              <a class="main-menu__link" href="portfolio.html">Портфолио</a>
-            </li>
-            <li class="main-menu__item">
-              <a class="main-menu__link" href="contacts.html">Контакты</a>
+            <li class="header__address-item">
+              <a class="header__address-link header__address-link--appearance-phone" href="tel:+380961111111">
+                <svg class="header__address-icon" width="10" height="16">
+                  <use href="images/icons.svg#smartphone" />
+                </svg>
+                +38&nbsp;096&nbsp;111&nbsp;11&nbsp;11
+              </a>
             </li>
           </ul>
-        </nav>
-        <ul class="header__address-list">
-          <li class="header__address-item">
-            <a class="header__address-link" href="mailto:info@devstudio.com">
-              <svg class="header__address-icon" width="16px" height="12px">
-                <use href="images/icons.svg#envelope"></use>
-              </svg>
-              info@devstudio.com
-            </a>
-          </li>
-          <li class="header__address-item">
-            <a class="header__address-link" href="tel:+380961111111">
-              <svg class="header__address-icon" width="10px" height="16px">
-                <use href="images/icons.svg#smartphone"></use>
-              </svg>
-              +38&nbsp;096&nbsp;111&nbsp;11&nbsp;11
-            </a>
-          </li>
-        </ul>
+          <ul class="header__socials-list">
+            <li class="header__socials-item">
+              <a class="header__socials-link" href="">Instagram</a>
+            </li>
+            <li class="header__socials-item">
+              <a class="header__socials-link" href="">Twitter</a>
+            </li>
+            <li class="header__socials-item">
+              <a class="header__socials-link" href="">Facebook</a>
+            </li>
+            <li class="header__socials-item">
+              <a class="header__socials-link" href="">LinkedIn</a>
+            </li>
+          </ul>
+        </div>
+        <button class="header__mobile-menu-btn" data-mobile-menu-open>
+          <svg class="header__mobile-menu-icon" width="40" height="40">
+            <use href="images/icons.svg#header-menu-btn" />
+          </svg>
+        </button>
       </div>
     </header>
     <!-- Main section -->
@@ -185,10 +207,11 @@
         </div>
       </section>
     </main>
+
     <!-- Footer section -->
     <footer class="footer">
       <div class="container footer__container">
-        <div class="footer__left-part">
+        <div class="footer__logo-address">
           <a class="logo footer__logo" href=""><span class="logo__part">Web</span>Studio</a>
           <address class="footer__address">
             <ul class="footer__address-list">
@@ -210,28 +233,28 @@
             <li class="socials__item">
               <a class="socials__btn" href="">
                 <svg class="socials__btn-icon" width="44px" height="44px">
-                  <use class="socials__btn-icon-res footer__socials__btn-icon-res" href="images/icons.svg#instagram-btn"></use>
+                  <use class="socials__btn-icon-res footer__socials__btn-icon-res" href="images/icons.svg#instagram-btn" />
                 </svg>
               </a>
             </li>
             <li class="socials__item">
               <a class="socials__btn" href="">
                 <svg class="socials__btn-icon" width="44px" height="44px">
-                  <use class="socials__btn-icon-res footer__socials__btn-icon-res" href="images/icons.svg#twitter-btn"></use>
+                  <use class="socials__btn-icon-res footer__socials__btn-icon-res" href="images/icons.svg#twitter-btn" />
                 </svg>
               </a>
             </li>
             <li class="socials__item">
               <a class="socials__btn" href="">
                 <svg class="socials__btn-icon" width="44px" height="44px">
-                  <use class="socials__btn-icon-res footer__socials__btn-icon-res" href="images/icons.svg#facebook-btn"></use>
+                  <use class="socials__btn-icon-res footer__socials__btn-icon-res" href="images/icons.svg#facebook-btn" />
                 </svg>
               </a>
             </li>
             <li class="socials__item">
               <a class="socials__btn" href="">
                 <svg class="socials__btn-icon" width="44px" height="44px">
-                  <use class="socials__btn-icon-res footer__socials__btn-icon-res" href="images/icons.svg#linkedin-btn"></use>
+                  <use class="socials__btn-icon-res footer__socials__btn-icon-res" href="images/icons.svg#linkedin-btn" />
                 </svg>
               </a>
             </li>
@@ -244,12 +267,13 @@
             <button class="button subscribe__button" type="submit">
               Подписаться
               <svg class="subscribe__btn-icon" width="24px" height="24px">
-                <use class="subscribe__btn-icon-res" href="images/icons.svg#send"></use>
+                <use class="subscribe__btn-icon-res" href="images/icons.svg#send" />
               </svg>
             </button>
           </div>
         </form>
       </div>
     </footer>
+    <script src="./js/modal.js"></script>
   </body>
 </html>

@@ -1,44 +1,162 @@
+// .header__main-menu,
+// .header__address-list {
+//   display: none;
+// }
 .header {
-  padding-top: 24px;
-  padding-bottom: 24px;
   border-bottom: 1px solid var(--border-c1);
 }
 
 .header__container {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  padding-top: 10px;
+  padding-bottom: 9px; //на 1 меньше из-за бордюра
 }
 
-.header .logo {
-  margin-right: 93px;
-}
+.header__mobile-menu-container {
+  position: absolute;
+  z-index: 49;
 
-.header__address-list {
-  margin-left: auto;
+  width: 100%;
+  height: 100%;
+  
+  left: 50%;
+  top: 50%;
+
+  // min-width: calc(297px + 40px * 2); // 297 это ширина номера
+  // min-width: fit-content;
+
+  padding: 48px 40px;
+
   display: flex;
-}
+  flex-direction: column;
+  justify-content: space-between;
 
-.header__address-item:first-child {
-  margin-right: var(--spacer);
-}
 
-.header__address-link {
-  display: flex;
-  align-items: center;
-  font-weight: 500;
-  letter-spacing: .02em;
-  color: var(--text-c-2);
+  background-color: var(--white-c);
+  box-shadow: 0px 0px 100px 10px #000;
 
-  transition: color var(--anim-speed) var(--anim-fn);
+  transform: translate(-50%, -50%);
+  transition: transform var(--anim-speed) cubic-bezier(0,0,0,1);
 
-  &:hover, &:focus {
-    color: var(--prima-c);
+  &--hidden {
+    pointer-events: none;
+    transform: translate(-50%, #{unquote("calc(-150% - 200px)")});
+    transition: transform var(--anim-speed) cubic-bezier(0,0,1,0);
   }
 }
 
 
-
-.header__address-icon {
-  margin-right: 10px;
+.header__address-list {
+  font-weight: 500;
+  margin-bottom: var(--mobile-menu-indent, 32px);
+  display: flex;
+  flex-direction:column-reverse;
 }
+
+.header__address-icon { // Скрыть иконки
+  display: none;
+}
+
+.header__address-item {
+  margin-bottom: var(--mobile-menu-indent, 32px);
+}
+
+// Внешний вид ссылок
+.header__address-link {
+  transition: color var(--anim-speed) var(--anim-fn);
+
+  &--appearance-phone {
+    // font-size: 10vw;
+    font-size: min(9vw, 34px);
+    line-height: calc(40 / 34);
+    letter-spacing: 0.02em;
+    color: var(--prima-c);
+    &:hover, &:focus {
+      color: var(--prima-c2);
+    }
+  }
+
+  &--appearance-email {
+    font-size: 24px;
+    line-height: calc(28 / 24);
+    letter-spacing: 0.02em;
+    color: var(--text-c-2);
+    &:hover, &:focus {
+      color: var(--prima-c);
+    }
+  }
+}
+
+.header__socials-list {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.header__socials-item {
+  display: flex;
+  align-items: center;
+
+  &:not(:last-child)::after {  // Разделитель — вертикальный штрих
+    content: "";
+    display: block;
+    margin-left: 9.5px;
+    margin-right: 9.5px;
+    width: 1px;
+    height: 100%;
+    background-color: rgba(var(--text-c-1-values),.2);
+  }
+}
+
+.header__socials-link {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: calc(22 / 18);
+  letter-spacing: 0.02em;
+  color: var(--prima-c);
+
+  transition: color var(--anim-speed) var(--anim-fn);
+
+  &:hover, &:focus {
+    color: var(--prima-c2);
+  }
+}
+
+
+// Кнопка открытия/закрытия меню
+.header__mobile-menu-btn {
+  position: relative;
+  z-index: 50;
+  fill: var(--text-c-1);
+  background: none;
+  border: none;
+
+  color: transparent;
+
+  transition:
+    fill var(--anim-speed) var(--anim-fn);
+
+  &:hover, &:focus {
+    fill: var(--prima-c);
+  }
+
+  &--opened { // Если меню выехало
+    fill: transparent;
+    color: var(--text-c-1);
+    transition:
+      color var(--anim-speed) var(--anim-fn);
+
+    &:hover, &:focus {
+      fill: transparent;
+      color: var(--prima-c);
+    }
+  }
+}
+
+.header__mobile-menu-icon {
+  fill: inherit;
+  color: inherit;
+}
+

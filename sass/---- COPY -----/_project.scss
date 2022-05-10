@@ -1,10 +1,6 @@
-.project {
-  width: 100%;
-}
-
 .project__link {
   display: block;
-
+  width: var(--projectCardWidth, 370px);
   transition: box-shadow var(--anim-speed) var(--anim-fn);
 
   &:hover, &:focus {
@@ -19,8 +15,6 @@
 
 .project__img {
   display: block;
-  height: 294px;
-  object-fit: cover;
 }
 
 .project__img-overlay {

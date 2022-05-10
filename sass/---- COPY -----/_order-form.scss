@@ -8,8 +8,7 @@
 
   font-weight: 700;
   font-size: relFont(20px);
-  line-height: calc(30 / 20);
-  // line-height: calc(23 / 20); // desktop
+  line-height: calc(23 / 20);
   text-align: center;
   letter-spacing: 0.03em;
 
@@ -68,22 +67,18 @@
   margin-top: 4px;
   margin-bottom: 10px;
   appearance: none;
-  padding: 11px 15px; // На 1 меньше из-за border
-
+  padding: 12px 16px;
   border-width: 1px;
   border-style: solid;
   border-color: inherit;
   border-radius: 4px;
-
   outline: none; // Убираем фокус браузера
 
-  font-size: relFont(14px);
-  line-height: calc(16 / 14);
+  line-height: calc(14 / 12);
   letter-spacing: 0.01em;
 
   &::placeholder {
-    color: var(--text-c-2);
-    opacity: 0.5;
+    color: rgba(var(--text-c-2-values), 0.5);
   }
 }
 
@@ -91,23 +86,17 @@
   margin-top: 10px;
   margin-bottom: 30px;
 
+  @include flex-centered;
+
+  font-size: 14px;
+  line-height: calc(24 / 14);
   letter-spacing: 0.03em;
-
-  // @include flex-centered;
-  
-  // font-size: 14px; // desktop
-  // line-height: calc(24 / 14);
-  // letter-spacing: 0.03em;
 }
-
 
 //Checkbox
 .order-form__checkmark-icon {
   // Стандартное состояние: чёрная рамка
-  margin-right: 4px;
-  display: inline-block;
-  vertical-align: middle;
-
+  margin-right: 8px;
   --cb-on: transparent;
   --cb-off: var(--text-c-1);
   color: transparent;

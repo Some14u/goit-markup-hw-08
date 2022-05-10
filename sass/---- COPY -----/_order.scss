@@ -1,22 +1,24 @@
 .order {
-  @include flex-centered;
+  display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content:center;
+  padding: 200px 0;
+
   background-color: rgb(var(--gray-bg));
   background-image: linear-gradient(rgba(var(--gray-bg),.4) 40%, rgba(var(--gray-bg),.4) 40%), url("../images/team-bg.jpg");
   background-size: cover;
   background-position: center;
-  height: 400px;
 }
 
 .order__text {
-  margin-bottom: 30px;
+  margin-bottom: var(--spacer);
   font-weight: 900;
-  font-size: 26px;
-  line-height: calc(42 / 26);
+  font-size: relFont(44px);
+  line-height: calc(60 / 44);
   text-align: center;
-  letter-spacing: 0.06em;
+  letter-spacing: .06em;
   text-transform: uppercase;
-
   color: var(--white-c);
 }
 
@@ -26,7 +28,7 @@
 
   font-weight: 700;
   line-height: calc(30 / 16);
-  letter-spacing: 0.06em;
+  letter-spacing: .06em;
 
   color: var(--white-c);
   background-color: var(--prima-c);
@@ -37,3 +39,4 @@
     background-color: var(--prima-c2);
   }
 }
+

@@ -1,18 +1,24 @@
 .footer {
-  padding-top: var(--footerIndent);
-  padding-bottom: var(--footerIndent);
-  text-align: center;
-
+  padding: 60px 0;
   background-color: rgb(var(--gray-bg));
+}
+
+.footer__container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+
+.footer__left-part {
+  width: 231px; // Нужно из-за косяка в макете
+  margin-right: 70px;
 }
 
 .footer__logo {
   display: block;
-
   margin-bottom: 20px;
   color: var(--white-c);
 }
-
 
 .footer__address {
   font-style: normal;
@@ -22,7 +28,7 @@
 
 .footer__address-item { // Эти блоки нужны из-за косяка в макете
   height: 1.5em; // Указано так, чтоб масштабировалось, если изменят размер шрифта
-  margin-bottom: 8px;
+  margin-bottom: 9px;
 
   &:last-child {
     margin-bottom: 0;
@@ -39,17 +45,13 @@
   }
 }
 
-.footer__logo-address,
 .footer__socials {
-  margin-bottom: var(--footerIndent);
+  margin-right: auto;
 }
-
 
 .footer__socials-title {
   margin-bottom: 20px;
   font-weight: 700;
-  line-height: calc(16 / 14);
-
   text-transform: uppercase;
   color: var(--white-c);
 }

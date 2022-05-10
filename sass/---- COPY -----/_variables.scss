@@ -2,22 +2,20 @@
   --containerWidth: 1200px;
   --containerPadding: 15px;
   --bodyWidth: calc(var(--containerWidth) + 400px);
-
-  --sectionPadding: 60px;
-  // --sectionPadding: 94px; // десктоп
-  --footerIndent: 60px;
-  --minorMargin: 30px;
-  //--minorMargin: 50px; // десктоп
+  --sectionPadding: 94px;
+  --sectionTitleMargin: 50px;
   --spacer: 30px; // Ширина отступов между элементами
 
-  --featureColumns: 4;
-  --clientColumns: 2;
-
+  --featureRows: 4;
+  --featureMinWidth: 270px;
+  --teamMemberCardWidth: 270px;
   --projectCardWidth: 370px;
 
   --baseFontSize: 14px; // по умолчанию 14
   --baseFontFamily: "Roboto", sans-serif;
   --baseLetterSpacing: 0.03em;
+
+  --logoFontSize: 26px;
 
   --modalWindowWidth: 528px;
   --modalWindowHeight: 581px;
@@ -25,10 +23,6 @@
 
   --anim-speed: 250ms;
   --anim-fn: cubic-bezier(0.4, 0, 0.2, 1);
-
-
-  // mobile constants
-  --mobile-menu-indent: 32px;
 
 
   --background-c:#e5e5e5;
@@ -46,11 +40,11 @@
   --black-c: rgb(var(--black-c-values));
   --border-c1: #ececec;
   --border-c2: #eee;
-  --text-c-1-values: 33, 33, 33;
+  --text-c-1-values: 21, 21, 21;
   --text-c-1: rgb(var(--text-c-1-values));
   --text-c-2-values: 117, 117, 117;
   --text-c-2: rgb(var(--text-c-2-values));
-}
+  }
 
 
 

@@ -2,9 +2,8 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: calc(100% - var(--containerPadding) * 2);
-  min-width: calc(320px - var(--containerPadding) * 2);
-
+  width: var(--modalWindowWidth, 528px);
+  height: var(--modalWindowHeight, 581px);
   transform: translate(-50%, -50%);
   padding: 40px;
 
@@ -15,7 +14,6 @@
   transition: transform var(--anim-speed) var(--anim-fn);
 
   &--hidden {
-    pointer-events: none;
     transform: translate(-50%, 100vh) rotate(-180deg) scale(2);
   }
 }

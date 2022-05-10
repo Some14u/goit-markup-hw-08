@@ -12,35 +12,6 @@
   @return calc(var(--baseFontSize) * math.div($size, 14px));
 }
 
-
-body {
-  font-family: var(--baseFontFamily, "Roboto", sans-serif);
-  font-size: var(--baseFontSize, 14px);
-  letter-spacing: var(--baseLetterSpacing, .03);
-  background-color: var(--white-c);
-}
-
-.body--locked {
-  overflow: hidden;
-}
-
-.container {
-  width: 100%;
-  padding-left: var(--containerPadding, 15px);
-  padding-right: var(--containerPadding, 15px);
-  // margin-left: auto;
-  // margin-right: auto;
-}
-
-.button {
-  &[type="button"], &[type="submit"] {
-    cursor: pointer;
-    border: none;
-    border-radius: 4px;
-    font-size: relFont(16px);
-  }
-}
-
 .hidden {
   position: absolute;
   width: 1px;
@@ -52,29 +23,6 @@ body {
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
-}
-
-.section {
-  padding-top: var(--sectionPadding);
-  padding-bottom: var(--sectionPadding);
-}
-
-.title-h2 {
-  font-weight: 700;
-
-  font-size: relFont(28px);
-  line-height: calc(33 / 28);
-
-  // font-size: relFont(36px); // desktop
-  // line-height: calc(42 / 36);
-
-  text-align: center;
-  letter-spacing: .03em;
-  color: var(--text-c-1);
-}
-
-.section__title-h2 {
-  margin-bottom: var(--minorMargin, 50px);
 }
 
 .wrappable {
@@ -89,6 +37,50 @@ body {
   }
 }
 
+body {
+  width: var(--bodyWidth, 1600px);
+  margin: 0 auto;
+  font-family: var(--baseFontFamily, "Roboto", sans-serif);
+  font-size: var(--baseFontSize, 14px);
+  letter-spacing: var(--baseLetterSpacing, .03);
+  background-color: var(--white-c);
+}
+
+.button {
+  &[type="button"], &[type="submit"] {
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    font-size: relFont(16px);
+  }
+}
+
+.container {
+  width: var(--containerWidth, 1200px);
+  padding-left: var(--containerPadding, 15px);
+  padding-right: var(--containerPadding, 15px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section {
+  padding-top: var(--sectionPadding, 94px);
+  padding-bottom: var(--sectionPadding, 94px);;
+}
+
+.title-h2 {
+  font-weight: 700;
+  font-size: relFont(36px);
+  line-height: calc(42 / 36);
+  text-align: center;
+  letter-spacing: .03em;
+  color: var(--text-c-1);
+}
+
+.section__title-h2 {
+  margin-bottom: var(--minorMargin, 50px);
+}
+
 .backdrop {
   position: fixed;
   top: 0;
@@ -97,7 +89,7 @@ body {
   bottom: 0;
   z-index: 100;
 
-  overflow-y: auto;
+  overflow: visible;
 
   background-color: rgba(var(--black-c-values), 0.2);
   opacity: 1;

@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>goit-markup-hw</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,39 +17,61 @@
     <header class="header">
       <div class="container header__container">
         <a class="logo header__logo" href="#"> <span class="logo__part">Web</span>Studio</a>
-        <nav class="main-menu">
-          <ul class="main-menu__list">
-            <li class="main-menu__item main-menu__item--selected">
-              <a class="main-menu__link" href="index.html">Студия</a>
+        <div class="header__mobile-menu-container header__mobile-menu-container--hidden" data-mobile-menu>
+          <nav class="main-menu header__main-menu">
+            <ul class="main-menu__list">
+              <li class="main-menu__item main-menu__item--selected">
+                <a class="main-menu__link" href="index.html">Студия</a>
+              </li>
+              <li class="main-menu__item">
+                <a class="main-menu__link" href="portfolio.html">Портфолио</a>
+              </li>
+              <li class="main-menu__item">
+                <a class="main-menu__link" href="contacts.html">Контакты</a>
+              </li>
+            </ul>
+          </nav>
+          <ul class="header__address-list">
+            <li class="header__address-item">
+              <a class="header__address-link header__address-link--appearance-email" href="mailto:info@devstudio.com">
+                <svg class="header__address-icon" width="16" height="12">
+                  <use href="images/icons.svg#envelope" />
+                </svg>
+                info@devstudio.com
+              </a>
             </li>
-            <li class="main-menu__item">
-              <a class="main-menu__link" href="portfolio.html">Портфолио</a>
-            </li>
-            <li class="main-menu__item">
-              <a class="main-menu__link" href="contacts.html">Контакты</a>
+            <li class="header__address-item">
+              <a class="header__address-link header__address-link--appearance-phone" href="tel:+380961111111">
+                <svg class="header__address-icon" width="10" height="16">
+                  <use href="images/icons.svg#smartphone" />
+                </svg>
+                +38&nbsp;096&nbsp;111&nbsp;11&nbsp;11
+              </a>
             </li>
           </ul>
-        </nav>
-        <ul class="header__address-list">
-          <li class="header__address-item">
-            <a class="header__address-link" href="mailto:info@devstudio.com">
-              <svg class="header__address-icon" width="16px" height="12px">
-                <use href="images/icons.svg#envelope"></use>
-              </svg>
-              info@devstudio.com
-            </a>
-          </li>
-          <li class="header__address-item">
-            <a class="header__address-link" href="tel:+380961111111">
-              <svg class="header__address-icon" width="10px" height="16px">
-                <use href="images/icons.svg#smartphone"></use>
-              </svg>
-              +38&nbsp;096&nbsp;111&nbsp;11&nbsp;11
-            </a>
-          </li>
-        </ul>
+          <ul class="header__socials-list">
+            <li class="header__socials-item">
+              <a class="header__socials-link" href="">Instagram</a>
+            </li>
+            <li class="header__socials-item">
+              <a class="header__socials-link" href="">Twitter</a>
+            </li>
+            <li class="header__socials-item">
+              <a class="header__socials-link" href="">Facebook</a>
+            </li>
+            <li class="header__socials-item">
+              <a class="header__socials-link" href="">LinkedIn</a>
+            </li>
+          </ul>
+        </div>
+        <button class="header__mobile-menu-btn" data-mobile-menu-open>
+          <svg class="header__mobile-menu-icon" width="40" height="40">
+            <use href="images/icons.svg#header-menu-btn" />
+          </svg>
+        </button>
       </div>
     </header>
+
     <!-- Main section -->
     <main class="main-wrapper">
       <!-- Order section -->
@@ -57,7 +80,7 @@
           Эффективные решения<br />
           для вашего бизнеса
         </h1>
-        <button class="button order__button" type="button" class="order" data-modal-open>Заказать услугу</button>
+        <button class="button order__button" type="button" data-modal-open>Заказать услугу</button>
       </section>
       <!-- Features section -->
       <section class="features section">
@@ -65,36 +88,36 @@
           <h2 class="title-h2 section__title-h2 hidden">Описание преимуществ</h2>
           <ul class="features__list wrappable">
             <li class="features__item">
-              <div class="features__item-inner">
-                <svg class="features__item-icon" width="70px" height="70px">
-                  <use href="images/icons.svg#antenna"></use>
+              <div class="features__item-image-wrapper">
+                <svg class="features__item-icon" width="70" height="70">
+                  <use href="images/icons.svg#antenna" />
                 </svg>
               </div>
               <h3 class="features__item-name">Внимание к деталям</h3>
               <p class="features__item-desc">Идейные соображения, а также начало повседневной работы по формированию позиции.</p>
             </li>
             <li class="features__item">
-              <div class="features__item-inner">
-                <svg class="features__item-icon" width="70px" height="70px">
-                  <use href="images/icons.svg#clock"></use>
+              <div class="features__item-image-wrapper">
+                <svg class="features__item-icon" width="70" height="70">
+                  <use href="images/icons.svg#clock" />
                 </svg>
               </div>
               <h3 class="features__item-name">Пунктуальность</h3>
               <p class="features__item-desc">Задача организации, в особенности же рамки и место обучения кадров влечет за собой</p>
             </li>
             <li class="features__item">
-              <div class="features__item-inner">
-                <svg class="features__item-icon" width="70px" height="70px">
-                  <use href="images/icons.svg#diagram"></use>
+              <div class="features__item-image-wrapper">
+                <svg class="features__item-icon" width="70" height="70">
+                  <use href="images/icons.svg#diagram" />
                 </svg>
               </div>
               <h3 class="features__item-name">Планирование</h3>
               <p class="features__item-desc">Равным образом консультация с широким активом в значительной степени обуславливает.</p>
             </li>
             <li class="features__item">
-              <div class="features__item-inner">
-                <svg class="features__item-icon" width="70px" height="70px">
-                  <use href="images/icons.svg#astronaut"></use>
+              <div class="features__item-image-wrapper">
+                <svg class="features__item-icon" width="70" height="70">
+                  <use href="images/icons.svg#astronaut" />
                 </svg>
               </div>
               <h3 class="features__item-name">Современные технологии</h3>
@@ -104,7 +127,7 @@
         </div>
       </section>
       <!-- Targets section -->
-      <section class="targets targets--no-padding-top section">
+      <section class="targets targets--no-padding-top targets--hide-when-mobile section">
         <div class="container">
           <h2 class="title-h2 section__title-h2">Чем мы занимаемся</h2>
           <ul class="targets__list wrappable">
@@ -142,29 +165,29 @@
                 <ul class="socials">
                   <li class="socials__item">
                     <a class="socials__btn" href="">
-                      <svg class="socials__btn-icon" width="44px" height="44px">
-                        <use class="socials__btn-icon-res" href="images/icons.svg#instagram-btn"></use>
+                      <svg class="socials__btn-icon" width="44" height="44">
+                        <use class="socials__btn-icon-res" href="images/icons.svg#instagram-btn" />
                       </svg>
                     </a>
                   </li>
                   <li class="socials__item">
                     <a class="socials__btn" href="">
-                      <svg class="socials__btn-icon" width="44px" height="44px">
-                        <use class="socials__btn-icon-res" href="images/icons.svg#twitter-btn"></use>
+                      <svg class="socials__btn-icon" width="44" height="44">
+                        <use class="socials__btn-icon-res" href="images/icons.svg#twitter-btn" />
                       </svg>
                     </a>
                   </li>
                   <li class="socials__item">
                     <a class="socials__btn" href="">
-                      <svg class="socials__btn-icon" width="44px" height="44px">
-                        <use class="socials__btn-icon-res" href="images/icons.svg#facebook-btn"></use>
+                      <svg class="socials__btn-icon" width="44" height="44">
+                        <use class="socials__btn-icon-res" href="images/icons.svg#facebook-btn" />
                       </svg>
                     </a>
                   </li>
                   <li class="socials__item">
                     <a class="socials__btn" href="">
-                      <svg class="socials__btn-icon" width="44px" height="44px">
-                        <use class="socials__btn-icon-res" href="images/icons.svg#linkedin-btn"></use>
+                      <svg class="socials__btn-icon" width="44" height="44">
+                        <use class="socials__btn-icon-res" href="images/icons.svg#linkedin-btn" />
                       </svg>
                     </a>
                   </li>
@@ -179,29 +202,29 @@
                 <ul class="socials">
                   <li class="socials__item">
                     <a class="socials__btn" href="">
-                      <svg class="socials__btn-icon" width="44px" height="44px">
-                        <use class="socials__btn-icon-res" href="images/icons.svg#instagram-btn"></use>
+                      <svg class="socials__btn-icon" width="44" height="44">
+                        <use class="socials__btn-icon-res" href="images/icons.svg#instagram-btn" />
                       </svg>
                     </a>
                   </li>
                   <li class="socials__item">
                     <a class="socials__btn" href="">
-                      <svg class="socials__btn-icon" width="44px" height="44px">
-                        <use class="socials__btn-icon-res" href="images/icons.svg#twitter-btn"></use>
+                      <svg class="socials__btn-icon" width="44" height="44">
+                        <use class="socials__btn-icon-res" href="images/icons.svg#twitter-btn" />
                       </svg>
                     </a>
                   </li>
                   <li class="socials__item">
                     <a class="socials__btn" href="">
-                      <svg class="socials__btn-icon" width="44px" height="44px">
-                        <use class="socials__btn-icon-res" href="images/icons.svg#facebook-btn"></use>
+                      <svg class="socials__btn-icon" width="44" height="44">
+                        <use class="socials__btn-icon-res" href="images/icons.svg#facebook-btn" />
                       </svg>
                     </a>
                   </li>
                   <li class="socials__item">
                     <a class="socials__btn" href="">
-                      <svg class="socials__btn-icon" width="44px" height="44px">
-                        <use class="socials__btn-icon-res" href="images/icons.svg#linkedin-btn"></use>
+                      <svg class="socials__btn-icon" width="44" height="44">
+                        <use class="socials__btn-icon-res" href="images/icons.svg#linkedin-btn" />
                       </svg>
                     </a>
                   </li>
@@ -216,29 +239,29 @@
                 <ul class="socials">
                   <li class="socials__item">
                     <a class="socials__btn" href="">
-                      <svg class="socials__btn-icon" width="44px" height="44px">
-                        <use class="socials__btn-icon-res" href="images/icons.svg#instagram-btn"></use>
+                      <svg class="socials__btn-icon" width="44" height="44">
+                        <use class="socials__btn-icon-res" href="images/icons.svg#instagram-btn" />
                       </svg>
                     </a>
                   </li>
                   <li class="socials__item">
                     <a class="socials__btn" href="">
-                      <svg class="socials__btn-icon" width="44px" height="44px">
-                        <use class="socials__btn-icon-res" href="images/icons.svg#twitter-btn"></use>
+                      <svg class="socials__btn-icon" width="44" height="44">
+                        <use class="socials__btn-icon-res" href="images/icons.svg#twitter-btn" />
                       </svg>
                     </a>
                   </li>
                   <li class="socials__item">
                     <a class="socials__btn" href="">
-                      <svg class="socials__btn-icon" width="44px" height="44px">
-                        <use class="socials__btn-icon-res" href="images/icons.svg#facebook-btn"></use>
+                      <svg class="socials__btn-icon" width="44" height="44">
+                        <use class="socials__btn-icon-res" href="images/icons.svg#facebook-btn" />
                       </svg>
                     </a>
                   </li>
                   <li class="socials__item">
                     <a class="socials__btn" href="">
-                      <svg class="socials__btn-icon" width="44px" height="44px">
-                        <use class="socials__btn-icon-res" href="images/icons.svg#linkedin-btn"></use>
+                      <svg class="socials__btn-icon" width="44" height="44">
+                        <use class="socials__btn-icon-res" href="images/icons.svg#linkedin-btn" />
                       </svg>
                     </a>
                   </li>
@@ -253,29 +276,29 @@
                 <ul class="socials">
                   <li class="socials__item">
                     <a class="socials__btn" href="">
-                      <svg class="socials__btn-icon" width="44px" height="44px">
-                        <use class="socials__btn-icon-res" href="images/icons.svg#instagram-btn"></use>
+                      <svg class="socials__btn-icon" width="44" height="44">
+                        <use class="socials__btn-icon-res" href="images/icons.svg#instagram-btn" />
                       </svg>
                     </a>
                   </li>
                   <li class="socials__item">
                     <a class="socials__btn" href="">
-                      <svg class="socials__btn-icon" width="44px" height="44px">
-                        <use class="socials__btn-icon-res" href="images/icons.svg#twitter-btn"></use>
+                      <svg class="socials__btn-icon" width="44" height="44">
+                        <use class="socials__btn-icon-res" href="images/icons.svg#twitter-btn" />
                       </svg>
                     </a>
                   </li>
                   <li class="socials__item">
                     <a class="socials__btn" href="">
-                      <svg class="socials__btn-icon" width="44px" height="44px">
-                        <use class="socials__btn-icon-res" href="images/icons.svg#facebook-btn"></use>
+                      <svg class="socials__btn-icon" width="44" height="44">
+                        <use class="socials__btn-icon-res" href="images/icons.svg#facebook-btn" />
                       </svg>
                     </a>
                   </li>
                   <li class="socials__item">
                     <a class="socials__btn" href="">
-                      <svg class="socials__btn-icon" width="44px" height="44px">
-                        <use class="socials__btn-icon-res" href="images/icons.svg#linkedin-btn"></use>
+                      <svg class="socials__btn-icon" width="44" height="44">
+                        <use class="socials__btn-icon-res" href="images/icons.svg#linkedin-btn" />
                       </svg>
                     </a>
                   </li>
@@ -292,43 +315,43 @@
           <ul class="clients__list wrappable">
             <li class="clients__item">
               <a class="clients__link" href="">
-                <svg class="clients__icon" width="106px" height="60px">
-                  <use class="clients__icon-icon-res" href="images/icons.svg#company1"></use>
+                <svg class="clients__icon" width="106" height="60">
+                  <use class="clients__icon-icon-res" href="images/icons.svg#company1" />
                 </svg>
               </a>
             </li>
             <li class="clients__item">
               <a class="clients__link" href="">
-                <svg class="clients__icon" width="106px" height="60px">
-                  <use class="clients__icon-icon-res" href="images/icons.svg#company2"></use>
+                <svg class="clients__icon" width="106" height="60">
+                  <use class="clients__icon-icon-res" href="images/icons.svg#company2" />
                 </svg>
               </a>
             </li>
             <li class="clients__item">
               <a class="clients__link" href="">
-                <svg class="clients__icon" width="106px" height="60px">
-                  <use class="clients__icon-icon-res" href="images/icons.svg#company3"></use>
+                <svg class="clients__icon" width="106" height="60">
+                  <use class="clients__icon-icon-res" href="images/icons.svg#company3" />
                 </svg>
               </a>
             </li>
             <li class="clients__item">
               <a class="clients__link" href="">
-                <svg class="clients__icon" width="106px" height="60px">
-                  <use class="clients__icon-icon-res" href="images/icons.svg#company4"></use>
+                <svg class="clients__icon" width="106" height="60">
+                  <use class="clients__icon-icon-res" href="images/icons.svg#company4" />
                 </svg>
               </a>
             </li>
             <li class="clients__item">
               <a class="clients__link" href="">
-                <svg class="clients__icon" width="106px" height="60px">
-                  <use class="clients__icon-icon-res" href="images/icons.svg#company5"></use>
+                <svg class="clients__icon" width="106" height="60">
+                  <use class="clients__icon-icon-res" href="images/icons.svg#company5" />
                 </svg>
               </a>
             </li>
             <li class="clients__item">
               <a class="clients__link" href="">
-                <svg class="clients__icon" width="106px" height="60px">
-                  <use class="clients__icon-icon-res" href="images/icons.svg#company6"></use>
+                <svg class="clients__icon" width="106" height="60">
+                  <use class="clients__icon-icon-res" href="images/icons.svg#company6" />
                 </svg>
               </a>
             </li>
@@ -339,7 +362,7 @@
     <!-- Footer section -->
     <footer class="footer">
       <div class="container footer__container">
-        <div class="footer__left-part">
+        <div class="footer__logo-address">
           <a class="logo footer__logo" href=""><span class="logo__part">Web</span>Studio</a>
           <address class="footer__address">
             <ul class="footer__address-list">
@@ -361,28 +384,28 @@
             <li class="socials__item">
               <a class="socials__btn" href="">
                 <svg class="socials__btn-icon" width="44px" height="44px">
-                  <use class="socials__btn-icon-res footer__socials__btn-icon-res" href="images/icons.svg#instagram-btn"></use>
+                  <use class="socials__btn-icon-res footer__socials__btn-icon-res" href="images/icons.svg#instagram-btn" />
                 </svg>
               </a>
             </li>
             <li class="socials__item">
               <a class="socials__btn" href="">
                 <svg class="socials__btn-icon" width="44px" height="44px">
-                  <use class="socials__btn-icon-res footer__socials__btn-icon-res" href="images/icons.svg#twitter-btn"></use>
+                  <use class="socials__btn-icon-res footer__socials__btn-icon-res" href="images/icons.svg#twitter-btn" />
                 </svg>
               </a>
             </li>
             <li class="socials__item">
               <a class="socials__btn" href="">
                 <svg class="socials__btn-icon" width="44px" height="44px">
-                  <use class="socials__btn-icon-res footer__socials__btn-icon-res" href="images/icons.svg#facebook-btn"></use>
+                  <use class="socials__btn-icon-res footer__socials__btn-icon-res" href="images/icons.svg#facebook-btn" />
                 </svg>
               </a>
             </li>
             <li class="socials__item">
               <a class="socials__btn" href="">
                 <svg class="socials__btn-icon" width="44px" height="44px">
-                  <use class="socials__btn-icon-res footer__socials__btn-icon-res" href="images/icons.svg#linkedin-btn"></use>
+                  <use class="socials__btn-icon-res footer__socials__btn-icon-res" href="images/icons.svg#linkedin-btn" />
                 </svg>
               </a>
             </li>
@@ -395,7 +418,7 @@
             <button class="button subscribe__button" type="submit">
               Подписаться
               <svg class="subscribe__btn-icon" width="24px" height="24px">
-                <use class="subscribe__btn-icon-res" href="images/icons.svg#send"></use>
+                <use class="subscribe__btn-icon-res" href="images/icons.svg#send" />
               </svg>
             </button>
           </div>
@@ -412,21 +435,21 @@
             Имя
             <input class="order-form__field-data" type="text" name="name" required />
             <svg class="order-form__field-icon" width="18px" height="18px">
-              <use href="images/icons.svg#modal-person"></use>
+              <use href="images/icons.svg#modal-person" />
             </svg>
           </label>
           <label class="order-form__field">
             Телефон
             <input class="order-form__field-data" type="tel" name="phone" required />
             <svg class="order-form__field-icon" width="18px" height="18px">
-              <use href="images/icons.svg#modal-phone"></use>
+              <use href="images/icons.svg#modal-phone" />
             </svg>
           </label>
           <label class="order-form__field">
             Почта
             <input class="order-form__field-data" type="email" name="email" />
             <svg class="order-form__field-icon" width="18px" height="18px">
-              <use href="images/icons.svg#modal-email"></use>
+              <use href="images/icons.svg#modal-email" />
             </svg>
           </label>
           <label class="order-form__field">
@@ -436,21 +459,20 @@
           <label class="order-form__field order-form__field--appearance-terms">
             <input class="order-form__terms-cb hidden" type="checkbox" name="terms" required />
             <svg class="order-form__checkmark-icon" width="16px" height="15px">
-              <use href="images/icons.svg#checkbox"></use>
+              <use href="images/icons.svg#checkbox" />
             </svg>
-            Соглашаюсь с рассылкой и принимаю&nbsp;
+            Соглашаюсь с рассылкой и принимаю
             <a class="order-form__link" href="#" target="_blank">Условия договора</a>
           </label>
           <button class="button order-form__submit-btn" type="submit">Отправить</button>
         </form>
         <button class="modal-window__close-btn" type="button" data-modal-close>
           <svg class="modal-window__close-icon" width="11px" height="11px">
-            <use href="images/icons.svg#cross"></use>
+            <use href="images/icons.svg#cross" />
           </svg>
         </button>
       </div>
     </div>
-
     <script src="./js/modal.js"></script>
   </body>
 </html>

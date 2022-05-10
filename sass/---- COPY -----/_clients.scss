@@ -1,13 +1,10 @@
-.clients__item {
-  flex-basis: calc(100% / var(--clientColumns) - var(--spacer));
-}
-
 .clients__link {
   display: block;
+  width: 170px;
   height: 92px;
   @include flex-centered;
-  
-  // outline потому, что border в 1px некорректно задаёт адаптивную ширину в ff
+  // padding: 16px 32px;
+  /* outline потому, что border в 1px некорректно задаёт адаптивную ширину в ff */
   outline: 1px solid var(--light-gray2);
   outline-offset: -1px;
   border-radius: 4px;
