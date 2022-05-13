@@ -3,22 +3,22 @@
 }
 
 .team-member {
+  flex-basis: calc(100% / var(--teamColumns) - var(--spacer));
+
   background: var(--white-c);
   box-shadow: 0px 1px 3px rgba(0,0,0,.12), 0px 1px 1px rgba(0,0,0,.14), 0px 2px 1px rgba(0,0,0,.2);
   border-radius: 0px 0px 4px 4px;
-
-  &:not(:last-child) {
-    margin-bottom: var(--spacer);
-  }
 }
 
 .team-member__img {
   overflow: hidden;
+  aspect-ratio: var(--teamMemberImgAspect);
+  object-fit: cover;
 }
 
 .team-member__info {
   padding-top: var(--spacer);
-  padding-bottom: var(--spacer);
+  padding-bottom: 24px;
 
   font-size: relFont(16px);
   line-height: calc(19 / 16);
@@ -38,3 +38,10 @@
   color: var(--text-c-2);
 }
 
+/*----------- desktop ---------*/
+
+@media screen and (min-width: Var(desktop, breakPoint)) {
+  .team-member__info {
+    padding-bottom: var(--spacer);
+  }
+}

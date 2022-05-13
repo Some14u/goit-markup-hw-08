@@ -12,18 +12,11 @@
   color: var(--white-c);
 }
 
-.subscribe__wrapper {
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: center;
-}
-
 .subscribe__email {
   width: 100%;
 
   padding: 14px 15px;
   margin-bottom: 20px;
-  // margin-right: 12px; // desktop
 
   font-weight: 400;
   font-size: relFont(16px);
@@ -74,4 +67,18 @@
 
 .subscribe__btn-icon {
   margin-left: 10px;
+}
+
+
+/*----------- desktop ---------*/
+
+@media screen and (min-width: Var(desktop, breakPoint)) {
+
+  .subscribe__wrapper {
+    display: flex;
+  }
+
+  .subscribe__email {
+    margin-right: 12px;
+  }
 }

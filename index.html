@@ -17,54 +17,56 @@
     <header class="header">
       <div class="container header__container">
         <a class="logo header__logo" href="#"> <span class="logo__part">Web</span>Studio</a>
-        <div class="header__mobile-menu-container header__mobile-menu-container--hidden" data-mobile-menu>
-          <nav class="main-menu header__main-menu">
-            <ul class="main-menu__list">
-              <li class="main-menu__item main-menu__item--selected">
-                <a class="main-menu__link" href="index.html">Студия</a>
+        <div class="backdrop header__backdrop backdrop--hidden">
+          <div class="header__modal-window modal-window header__modal-window--hidden" modalWindow toggleBtn="toggleMobileMenu" hasBackdrop lockBodyScroll scrollTo="0">
+            <nav class="main-menu header__main-menu">
+              <ul class="main-menu__list">
+                <li class="main-menu__item main-menu__item--selected">
+                  <a class="main-menu__link" href="index.html">Студия</a>
+                </li>
+                <li class="main-menu__item">
+                  <a class="main-menu__link" href="portfolio.html">Портфолио</a>
+                </li>
+                <li class="main-menu__item">
+                  <a class="main-menu__link" href="contacts.html">Контакты</a>
+                </li>
+              </ul>
+            </nav>
+            <ul class="header__address-list">
+              <li class="header__address-item">
+                <a class="header__address-link header__address-link--appearance-email" href="mailto:info@devstudio.com">
+                  <svg class="header__address-icon header__address-icon-envelope" width="16" height="12">
+                    <use href="images/icons.svg#envelope" />
+                  </svg>
+                  info@devstudio.com
+                </a>
               </li>
-              <li class="main-menu__item">
-                <a class="main-menu__link" href="portfolio.html">Портфолио</a>
-              </li>
-              <li class="main-menu__item">
-                <a class="main-menu__link" href="contacts.html">Контакты</a>
+              <li class="header__address-item">
+                <a class="header__address-link header__address-link--appearance-phone" href="tel:+380961111111">
+                  <svg class="header__address-icon header__address-icon-phone" width="10" height="16">
+                    <use href="images/icons.svg#smartphone" />
+                  </svg>
+                  +38&nbsp;096&nbsp;111&nbsp;11&nbsp;11
+                </a>
               </li>
             </ul>
-          </nav>
-          <ul class="header__address-list">
-            <li class="header__address-item">
-              <a class="header__address-link header__address-link--appearance-email" href="mailto:info@devstudio.com">
-                <svg class="header__address-icon" width="16" height="12">
-                  <use href="images/icons.svg#envelope" />
-                </svg>
-                info@devstudio.com
-              </a>
-            </li>
-            <li class="header__address-item">
-              <a class="header__address-link header__address-link--appearance-phone" href="tel:+380961111111">
-                <svg class="header__address-icon" width="10" height="16">
-                  <use href="images/icons.svg#smartphone" />
-                </svg>
-                +38&nbsp;096&nbsp;111&nbsp;11&nbsp;11
-              </a>
-            </li>
-          </ul>
-          <ul class="header__socials-list">
-            <li class="header__socials-item">
-              <a class="header__socials-link" href="">Instagram</a>
-            </li>
-            <li class="header__socials-item">
-              <a class="header__socials-link" href="">Twitter</a>
-            </li>
-            <li class="header__socials-item">
-              <a class="header__socials-link" href="">Facebook</a>
-            </li>
-            <li class="header__socials-item">
-              <a class="header__socials-link" href="">LinkedIn</a>
-            </li>
-          </ul>
+            <ul class="header__socials-list">
+              <li class="header__socials-item">
+                <a class="header__socials-link" href="">Instagram</a>
+              </li>
+              <li class="header__socials-item">
+                <a class="header__socials-link" href="">Twitter</a>
+              </li>
+              <li class="header__socials-item">
+                <a class="header__socials-link" href="">Facebook</a>
+              </li>
+              <li class="header__socials-item">
+                <a class="header__socials-link" href="">LinkedIn</a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <button class="header__mobile-menu-btn" data-mobile-menu-open>
+        <button class="header__mobile-menu-btn" toggleMobileMenu>
           <svg class="header__mobile-menu-icon" width="40" height="40">
             <use href="images/icons.svg#header-menu-btn" />
           </svg>
@@ -80,7 +82,7 @@
           Эффективные решения<br />
           для вашего бизнеса
         </h1>
-        <button class="button order__button" type="button" data-modal-open>Заказать услугу</button>
+        <button class="button order__button" type="button" openOrderModal classToToggle="order_button">Заказать услугу</button>
       </section>
       <!-- Features section -->
       <section class="features section">
@@ -127,7 +129,7 @@
         </div>
       </section>
       <!-- Targets section -->
-      <section class="targets targets--no-padding-top targets--hide-when-mobile section">
+      <section class="targets targets--no-padding-top section">
         <div class="container">
           <h2 class="title-h2 section__title-h2">Чем мы занимаемся</h2>
           <ul class="targets__list wrappable">
@@ -411,7 +413,7 @@
             </li>
           </ul>
         </div>
-        <form class="subscribe" method="post" action="javascript:void(0);">
+        <form class="subscribe footer__subscribe" method="post" action="javascript:void(0);">
           <label class="subscribe__title" for="subscribe">Подпишитесь на рассылку</label>
           <div class="subscribe__wrapper">
             <input class="subscribe__email" type="email" name="subscribe" id="subscribe" required placeholder="E-mail" />
@@ -426,9 +428,9 @@
       </div>
     </footer>
 
-    <!-- Modal window -->
-    <div class="backdrop backdrop--hidden" data-modal>
-      <div class="modal-window modal-window--hidden" data-modal>
+    <!-- Order modal window -->
+    <div class="backdrop backdrop--hidden">
+      <div class="modal-window order__modal-window order__modal-window--hidden" modalWindow openBtn="openOrderModal" closeBtn="closeOrderModal" classToToggle="order__modal-window" lockBodyScroll backdropCloses>
         <form class="order-form" method="post" action="javascript:void(0);">
           <p class="order-form__title">Оставьте свои данные, мы вам перезвоним</p>
           <label class="order-form__field">
@@ -466,7 +468,7 @@
           </label>
           <button class="button order-form__submit-btn" type="submit">Отправить</button>
         </form>
-        <button class="modal-window__close-btn" type="button" data-modal-close>
+        <button class="modal-window__close-btn" type="button" closeOrderModal>
           <svg class="modal-window__close-icon" width="11px" height="11px">
             <use href="images/icons.svg#cross" />
           </svg>

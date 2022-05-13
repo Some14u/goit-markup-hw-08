@@ -1,22 +1,38 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+
+  background-color: rgba(var(--black-c-values), 0.2);
+  transition: background-color var(--anim-speed) var(--anim-fn);
+}
+
+.backdrop--hidden {
+  pointer-events: none;
+  background-color: rgba(var(--black-c-values), 0);
+}
+
 .modal-window {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: calc(100% - var(--containerPadding) * 2);
-  min-width: calc(320px - var(--containerPadding) * 2);
 
-  transform: translate(-50%, -50%);
   padding: 40px;
+
+  overflow: auto;
 
   background-color: var(--white-c);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 
+  transform: translate(-50%, -50%);
   transition: transform var(--anim-speed) var(--anim-fn);
 
   &--hidden {
     pointer-events: none;
-    transform: translate(-50%, 100vh) rotate(-180deg) scale(2);
   }
 }
 

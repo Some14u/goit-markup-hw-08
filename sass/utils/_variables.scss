@@ -1,37 +1,60 @@
+@use "sass:math";
+@use "sass:map";
+
+//Переменные сайта, меняющиеся в зависимости от ширины экрана
+$vars: (
+  "default": (
+    breakPoint: 0px, //Заглушка
+    sectionPadding: 60px, //Отступы сверху и снизу секций
+    minorMargin: 30px, //Отступы после заголовков и фильтра проектов
+  ),
+  "mobile": (
+    breakPoint: 480px, //Стартовая ширина модальности
+    featureColumns: 1, //Количество столбцов секции features
+    teamColumns: 1, //Количество столбцов секции c портретами членов команды
+    clientColumns: 2, //Количество столбцов секции с иконками клиентов
+    projectColumns: 1, //Количество столбцов на странице проектов
+    teamMemberImgAspect: unquote("450 / 460"), //Соотношение сторон портретов членов команды
+    projectImgAspect: unquote("450 / 294"), //Соотношение сторон иллюстраций проектов
+  ),
+  "tablet": ( //Дальше параметры заполняются для каждой модальности своими значениями.
+    breakPoint: 768px,
+    featureColumns: 2,
+    teamColumns: 2,
+    clientColumns: 3,
+    projectColumns: 2,
+    teamMemberImgAspect: unquote("354 / 374"),
+    projectImgAspect: unquote("354 / 294"),
+  ),
+  "desktop": (
+    breakPoint: 1200px,
+    featureColumns: 4,
+    targetColumns: 3, //Количество столбцов секции «Чем мы занимаемся». Секция скрыта везде, кроме desktop
+    teamColumns: 4,
+    clientColumns: 6,
+    projectColumns: 3,
+    teamMemberImgAspect: unquote("270 / 260"),
+    projectImgAspect: unquote("370 / 294"),
+    sectionPadding: 94px,
+    minorMargin: 50px,
+  ),
+);
+
 :root {
-  --containerWidth: 1200px;
-  --containerPadding: 15px;
-  --bodyWidth: calc(var(--containerWidth) + 400px);
+  --containerPadding: 15px; //Отступы слева/справа главного контейнера
+  --spacer: 30px; //Ширина отступов между элементами
+  --mobile-menu-indent: 32px; //Отступы между полями в мобильном меню
 
-  --sectionPadding: 60px;
-  // --sectionPadding: 94px; // десктоп
-  --footerIndent: 60px;
-  --minorMargin: 30px;
-  //--minorMargin: 50px; // десктоп
-  --spacer: 30px; // Ширина отступов между элементами
-
-  --featureColumns: 4;
-  --clientColumns: 2;
-
-  --projectCardWidth: 370px;
-
-  --baseFontSize: 14px; // по умолчанию 14
+  --baseFontSize: 14px; //по умолчанию 14
   --baseFontFamily: "Roboto", sans-serif;
   --baseLetterSpacing: 0.03em;
 
-  --modalWindowWidth: 528px;
-  --modalWindowHeight: 581px;
-
-
+  //Параметры анимации
   --anim-speed: 250ms;
   --anim-fn: cubic-bezier(0.4, 0, 0.2, 1);
 
-
-  // mobile constants
-  --mobile-menu-indent: 32px;
-
-
-  --background-c:#e5e5e5;
+  //Цвета
+  --background-c: #e5e5e5;
   --prima-c-values: 33, 150, 243;
   --prima-c: rgb(var(--prima-c-values));
   --prima-c2: #188ce8;
@@ -52,5 +75,43 @@
   --text-c-2: rgb(var(--text-c-2-values));
 }
 
+//Выводит значение поля карты $vars (см выше) по типу модальности окна. Если модальность
+//не указана, то значение ищется по таблице сверху вниз (default>mobile>tablet>desktop)
+@function Var($class, $name: null) {
+  @if not $name {
+    $name: $class;
+    $class: "default";
+  }
+  @return map.get($vars, $class, $name) or map.get($vars, "default", $name) or map.get($vars, "mobile", $name) or map.get($vars, "tablet", $name) or map.get($vars, "desktop", $name);
+}
 
+// Масштабирует шрифт. На входе размер в пикселах из макета,
+// на выходе — в масштабе baseFontSize/14
+@function relFont($size) {
+  @return calc(var(--baseFontSize) * math.div($size, 14px));
+}
 
+:root {
+  //Ниже инициализируются те переменные, которые зависят от ширины экрана
+  //Значения из $vars переносятся нативные переменные css
+  @mixin setVariables($class) {
+    @media screen and (min-width: Var($class, breakPoint)) {
+      --featureColumns: #{Var($class, featureColumns)};
+      --teamColumns: #{Var($class, teamColumns)};
+      --targetColumns: #{Var($class, targetColumns)};
+      --clientColumns: #{Var($class, clientColumns)};
+      --projectColumns: #{Var($class, projectColumns)};
+      --containerWidth: #{math.max(Var($class, breakPoint), Var(mobile, breakPoint))};
+      --teamMemberBottomPadding: #{Var($class, teamMemberBottomPadding)};
+      --teamMemberImgAspect: #{Var($class, teamMemberImgAspect)};
+      --projectImgAspect: #{Var($class, projectImgAspect)};
+      --sectionPadding: #{Var($class, sectionPadding)};
+      --minorMargin: #{Var($class, minorMargin)};
+    }
+  }
+
+  @include setVariables("default");
+  @include setVariables("mobile");
+  @include setVariables("tablet");
+  @include setVariables("desktop");
+}

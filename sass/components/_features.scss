@@ -1,11 +1,6 @@
 .features__item {
   width: 100%;
-}
-
-.features__item:not(:last-child) {
-  // margin-bottom: var(--minorMargin);
-  // min-width: var(--featureMinWidth, 270px);
-  // flex-basis: calc(100% / var(--featureColumns) - var(--spacer));
+  flex-basis: calc(100% / var(--featureColumns) - var(--spacer));
 }
 
 .features__item-image-wrapper {
@@ -34,4 +29,13 @@
 .features__item-desc {
   line-height: calc(24 / 14);
   color: var(--text-c-2);
+}
+
+
+/*----------- desktop ---------*/
+
+@media screen and (min-width: Var(desktop, breakPoint)) {
+  .features__item-name {
+    text-align: left;
+  }
 }

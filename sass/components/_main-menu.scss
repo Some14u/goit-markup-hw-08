@@ -1,42 +1,15 @@
-.header__main-menu {
-  margin-bottom: auto;
-}
-
 .main-menu__item {
-  --line_height: 47; // Вот эти все вещи нужны из-за косяка в макете
-  height: calc((var(--line_height) * 1px) + 1px);
-
   font-weight: 500;
-  font-size: relFont(40px);
-  line-height: calc(var(--line_height) / 40);
   letter-spacing: 0.02em;
-  color: var(--text-c-1);
 
+  color: var(--text-c-1);
   transition: color var(--anim-speed) var(--anim-fn);
 
   &--selected {
-    width: fit-content;
     position: relative;
-    height: calc(relFont(40px) + 12px);
-
     pointer-events: none;
     cursor: default;
     color: var(--prima-c);
-  }
-
-  &--selected::after{
-    content: "";
-    display: block;
-    position: absolute;
-    width: 100%;
-    height:4px;
-    bottom: 0;
-    border-radius: 2px;
-    background-color: var(--prima-c);
-  }
-
-  &:not(:last-child) {
-    margin-bottom: var(--mobile-menu-indent, 32px);
   }
 }
 
@@ -48,4 +21,71 @@
   &:hover, &:focus {
     color: var(--prima-c);
   }
+}
+
+
+
+/*----------- mobile + ---------*/
+
+
+@media screen and (max-width: (Var(tablet, breakPoint) - 1)) {
+  .main-menu__item {
+    --line_height: 47; // Вот эти все вещи нужны из-за косяка в макете
+    height: calc((var(--line_height) * 1px) + 1px);
+
+    font-size: relFont(40px);
+    line-height: calc(var(--line_height) / 40);
+
+
+    &--selected {
+      width: fit-content;
+      position: relative;
+      height: calc(relFont(40px) + 12px);
+    }
+
+    &--selected::after{
+      content: "";
+      display: block;
+      position: absolute;
+      width: 100%;
+      height:4px;
+      bottom: 0;
+      border-radius: 2px;
+      background-color: var(--prima-c);
+    }
+
+    &:not(:last-child) {
+      margin-bottom: var(--mobile-menu-indent, 32px);
+    }
+  }
+}
+
+
+/*----------- tablet + ---------*/
+
+
+@media screen and (min-width: Var(tablet, breakPoint)) {
+  .main-menu__list {
+    display: flex;
+  }
+
+  .main-menu__item:not(:last-child) {
+    margin-right: 50px;
+  }
+
+  .main-menu__link {
+    .main-menu__item--selected &::before{
+      content: "";
+      display: block;
+      position: absolute;
+      z-index: 1000;
+      width: 100%;
+      height:4px;
+      top: calc(50% - 4px + 40.5px);
+      border-radius: 2px;
+      background-color: var(--prima-c);
+    }
+  }
+
+
 }

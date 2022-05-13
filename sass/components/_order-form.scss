@@ -9,7 +9,6 @@
   font-weight: 700;
   font-size: relFont(20px);
   line-height: calc(30 / 20);
-  // line-height: calc(23 / 20); // desktop
   text-align: center;
   letter-spacing: 0.03em;
 
@@ -92,12 +91,6 @@
   margin-bottom: 30px;
 
   letter-spacing: 0.03em;
-
-  // @include flex-centered;
-  
-  // font-size: 14px; // desktop
-  // line-height: calc(24 / 14);
-  // letter-spacing: 0.03em;
 }
 
 
@@ -106,11 +99,12 @@
   // Стандартное состояние: чёрная рамка
   margin-right: 4px;
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: text-top;
 
   --cb-on: transparent;
   --cb-off: var(--text-c-1);
   color: transparent;
+  transition: color var(--anim-speed) var(--anim-fn);
 
   .order-form__field--appearance-terms:hover &, // hover по полю с текстом
   .order-form__terms-cb:focus + & { // focus на скрытом чекбоксе
@@ -154,5 +148,21 @@
   transition: background-color var(--anim-speed) var(--anim-fn);
   &:hover, &:focus {
     background-color: var(--prima-c2);
+  }
+}
+
+/*----------- desktop ---------*/
+
+@media screen and (min-width: Var(desktop, breakPoint)) {
+  .order-form__title {
+    line-height: calc(23 / 20);
+  }
+
+  .order-form__field--appearance-terms {
+    text-align: center;
+
+    font-size: 14px;
+    line-height: calc(24 / 14);
+    letter-spacing: 0.03em;
   }
 }

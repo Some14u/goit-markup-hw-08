@@ -1,7 +1,3 @@
-// .header__main-menu,
-// .header__address-list {
-//   display: none;
-// }
 .header {
   border-bottom: 1px solid var(--border-c1);
 }
@@ -10,153 +6,298 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 10px;
-  padding-bottom: 9px; //на 1 меньше из-за бордюра
 }
 
-.header__mobile-menu-container {
-  position: absolute;
-  z-index: 49;
+/*----------- mobile only ---------*/
 
-  width: 100%;
-  height: 100%;
-  
-  left: 50%;
-  top: 50%;
-
-  // min-width: calc(297px + 40px * 2); // 297 это ширина номера
-  // min-width: fit-content;
-
-  padding: 48px 40px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-
-  background-color: var(--white-c);
-  box-shadow: 0px 0px 100px 10px #000;
-
-  transform: translate(-50%, -50%);
-  transition: transform var(--anim-speed) cubic-bezier(0,0,0,1);
-
-  &--hidden {
-    pointer-events: none;
-    transform: translate(-50%, #{unquote("calc(-150% - 200px)")});
-    transition: transform var(--anim-speed) cubic-bezier(0,0,1,0);
+@media screen and (max-width: (Var(tablet, breakPoint) - 1)) {
+  .header__container {
+    padding-top: 10px;
+    padding-bottom: 9px; //на 1 меньше из-за бордюра
   }
-}
 
+  .header__modal-window {
+    z-index: 49;
 
-.header__address-list {
-  font-weight: 500;
-  margin-bottom: var(--mobile-menu-indent, 32px);
-  display: flex;
-  flex-direction:column-reverse;
-}
+    width: 100%;
+    height: 100%;
 
-.header__address-icon { // Скрыть иконки
-  display: none;
-}
+    // @media screen and (min-width: Var(mobile, breakPoint)) {
+    max-width: Var(mobile, breakPoint);
+    // }
 
-.header__address-item {
-  margin-bottom: var(--mobile-menu-indent, 32px);
-}
+    // min-width: calc(297px + 40px * 2); // 297 это ширина номера
+    min-width: fit-content;
 
-// Внешний вид ссылок
-.header__address-link {
-  transition: color var(--anim-speed) var(--anim-fn);
+    padding-top: 48px;
+    padding-bottom: 48px;
 
-  &--appearance-phone {
-    // font-size: 10vw;
-    font-size: min(9vw, 34px);
-    line-height: calc(40 / 34);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    transform: translate(-50%, -50%);
+    transition: transform var(--anim-speed) cubic-bezier(0, 0, 0, 1);
+
+    &--hidden {
+      pointer-events: none;
+      transform: translate(-50%, #{unquote("calc(-150% - 200px)")});
+      transition: transform var(--anim-speed) cubic-bezier(0, 0, 1, 0);
+    }
+  }
+
+  .header__main-menu {
+    margin-bottom: auto;
+  }
+
+  .header__address-list {
+    font-weight: 500;
+    margin-bottom: var(--mobile-menu-indent, 32px);
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .header__address-icon {
+    display: none; // Скрыть иконки телефона и почты
+  }
+
+  .header__address-item {
+    margin-bottom: var(--mobile-menu-indent, 32px);
+  }
+
+  // Внешний вид ссылок
+  .header__address-link {
+    transition: color var(--anim-speed) var(--anim-fn);
+
+    &--appearance-phone {
+      font-size: 34px;
+      line-height: calc(40 / 34);
+      letter-spacing: 0.02em;
+      color: var(--prima-c);
+      &:hover,
+      &:focus {
+        color: var(--prima-c2);
+      }
+    }
+
+    &--appearance-email {
+      font-size: 24px;
+      line-height: calc(28 / 24);
+      letter-spacing: 0.02em;
+      color: var(--text-c-2);
+      &:hover,
+      &:focus {
+        color: var(--prima-c);
+      }
+    }
+  }
+
+  .header__socials-list {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .header__socials-item {
+    display: flex;
+    align-items: center;
+
+    &:not(:last-child)::after {
+      // Разделитель — вертикальный штрих
+      content: "";
+      display: block;
+      margin-left: 9.5px;
+      margin-right: 9.5px;
+      width: 1px;
+      height: 100%;
+      background-color: rgba(var(--text-c-1-values), 0.2);
+    }
+  }
+
+  .header__socials-link {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: calc(22 / 18);
     letter-spacing: 0.02em;
     color: var(--prima-c);
-    &:hover, &:focus {
+
+    transition: color var(--anim-speed) var(--anim-fn);
+
+    &:hover,
+    &:focus {
       color: var(--prima-c2);
     }
   }
 
-  &--appearance-email {
-    font-size: 24px;
-    line-height: calc(28 / 24);
+  // Кнопка открытия/закрытия меню
+  .header__mobile-menu-btn {
+    position: relative;
+    z-index: 99;
+    fill: var(--text-c-1);
+    background: none;
+    border: none;
+
+    color: transparent;
+
+    transition: fill var(--anim-speed) var(--anim-fn), z-index 0ms linear var(--anim-speed);
+
+    &:hover,
+    &:focus {
+      fill: var(--prima-c);
+    }
+
+    &--opened {
+      // Если меню выехало
+      z-index: 100;
+      fill: transparent;
+      color: var(--text-c-1);
+      transition: color var(--anim-speed) var(--anim-fn);
+
+      &:hover,
+      &:focus {
+        fill: transparent;
+        color: var(--prima-c);
+      }
+    }
+  }
+
+  .header__mobile-menu-icon {
+    fill: inherit;
+    color: inherit;
+  }
+}
+
+
+/*----------- tablet + ---------*/
+
+@media screen and (min-width: Var(tablet, breakPoint)) {
+  .header__container {
+    height: 79px;
+  }
+
+  .header__socials-list {
+    display: none;
+  }
+
+  .header__mobile-menu-btn {
+    display: none;
+  }
+
+  .header__backdrop {
+    // Отключаем бэкдроп
+    position: initial;
+    pointer-events: all;
+    z-index: auto;
+    background-color: transparent;
+
+    width: 100%;
+  }
+
+  .header__logo {
+    margin-right: 88px; //Отступ от логотипа до меню.
+  }
+
+  .header__modal-window {
+    // Сбрасываем стили модального окна. Вынужденная мера из-за того,
+    // что я решил делать модальное меню для mobile версии из обычного.
+
+    position: relative;
+    top: initial;
+    left: initial;
+
+    padding: 0;
+
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0;
+
+    overflow: visible;
+
+    transform: translate(0, 0);
+    transition: none;
+    // тут сброс закончился
+
+    display: flex;
+    align-items: center;
+  }
+
+  .header__address-list {
+    margin-left: auto;
+  }
+
+  .header__address-item:first-child {
+    margin-bottom: 10px;
+  }
+
+  .header__address-link {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
     letter-spacing: 0.02em;
     color: var(--text-c-2);
-    &:hover, &:focus {
+
+    transition: color var(--anim-speed) var(--anim-fn);
+
+    &:hover,
+    &:focus {
       color: var(--prima-c);
     }
   }
+
 }
 
-.header__socials-list {
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-}
 
-.header__socials-item {
-  display: flex;
-  align-items: center;
 
-  &:not(:last-child)::after {  // Разделитель — вертикальный штрих
-    content: "";
-    display: block;
-    margin-left: 9.5px;
-    margin-right: 9.5px;
-    width: 1px;
-    height: 100%;
-    background-color: rgba(var(--text-c-1-values),.2);
+/*----------- tablet only ---------*/
+
+@media screen and (min-width: Var(tablet, breakPoint))
+  and (max-width: (Var(desktop, breakPoint) - 1)) {
+
+  .header__address-link {
+    font-size: relFont(12px);
+    line-height: calc(14 / 12);
   }
-}
 
-.header__socials-link {
-  font-weight: 500;
-  font-size: 18px;
-  line-height: calc(22 / 18);
-  letter-spacing: 0.02em;
-  color: var(--prima-c);
+  .header__address-icon {
+    margin-right: 8px;
+  }
 
-  transition: color var(--anim-speed) var(--anim-fn);
-
-  &:hover, &:focus {
-    color: var(--prima-c2);
+  //Грязные хаки, чтобы подогнать под макет. В нём иконки чуть-чуть уменьшены
+  .header__address-icon-envelope {
+    margin-left: -1px;
+    scale: calc(14 / 16) calc(10 / 12);
+  }
+  .header__address-icon-phone {
+    margin-top: -1px;
+    margin-bottom: -1px;
+    scale: 1 calc(14 / 16);
   }
 }
 
 
-// Кнопка открытия/закрытия меню
-.header__mobile-menu-btn {
-  position: relative;
-  z-index: 50;
-  fill: var(--text-c-1);
-  background: none;
-  border: none;
+/*----------- desktop ---------*/
 
-  color: transparent;
+@media screen and (min-width: Var(desktop, breakPoint)) {
 
-  transition:
-    fill var(--anim-speed) var(--anim-fn);
-
-  &:hover, &:focus {
-    fill: var(--prima-c);
+  .header__logo {
+    margin-right: 93px;
   }
 
-  &--opened { // Если меню выехало
-    fill: transparent;
-    color: var(--text-c-1);
-    transition:
-      color var(--anim-speed) var(--anim-fn);
+  .header__address-list {
+    display: flex;
+  }
 
-    &:hover, &:focus {
-      fill: transparent;
-      color: var(--prima-c);
-    }
+  .header__address-item:first-child {
+    margin-bottom: 0px;
+    margin-right: var(--spacer);
+  }
+
+  .header__address-link {
+    font-size: relFont(14px);
+    line-height: calc(16 / 14);
+  }
+
+  .header__address-icon {
+    margin-right: 10px;
   }
 }
-
-.header__mobile-menu-icon {
-  fill: inherit;
-  color: inherit;
-}
-

@@ -1,18 +1,16 @@
 .footer {
-  padding-top: var(--footerIndent);
-  padding-bottom: var(--footerIndent);
+  padding-top: Var(default, sectionPadding);
+  padding-bottom: Var(default, sectionPadding);
   text-align: center;
 
   background-color: rgb(var(--gray-bg));
 }
 
 .footer__logo {
-  display: block;
-
   margin-bottom: 20px;
+
   color: var(--white-c);
 }
-
 
 .footer__address {
   font-style: normal;
@@ -20,7 +18,8 @@
   color: var(--white-c);
 }
 
-.footer__address-item { // Эти блоки нужны из-за косяка в макете
+.footer__address-item {
+  // Эти блоки нужны из-за косяка в макете
   height: 1.5em; // Указано так, чтоб масштабировалось, если изменят размер шрифта
   margin-bottom: 8px;
 
@@ -30,20 +29,14 @@
 }
 
 .footer__address-link {
-  color: rgba(var(--white-c-values),.6);
-  transition:
-    color var(--anim-speed) var(--anim-fn);
+  color: rgba(var(--white-c-values), 0.6);
+  transition: color var(--anim-speed) var(--anim-fn);
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     color: var(--prima-c);
   }
 }
-
-.footer__logo-address,
-.footer__socials {
-  margin-bottom: var(--footerIndent);
-}
-
 
 .footer__socials-title {
   margin-bottom: 20px;
@@ -55,6 +48,88 @@
 }
 
 .footer__socials__btn-icon-res {
-  fill: rgba(var(--white-c-values),.1);
+  fill: rgba(var(--white-c-values), 0.1);
   color: var(--white-c);
+}
+
+.footer__logo-address,
+.footer__socials {
+  margin-bottom: Var(default, sectionPadding);
+}
+
+.footer__subscribe {
+  & .subscribe__email {
+    width: min(100%, calc(Var(mobile, breakPoint) - var(--containerPadding) * 2));
+  }
+}
+
+/*----------- tablet + ---------*/
+
+@media screen and (min-width: Var(tablet, breakPoint)) {
+  .footer__container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+}
+
+
+/*----------- tablet only ---------*/
+
+@media screen and (min-width: Var(tablet, breakPoint))
+  and (max-width: (Var(desktop, breakPoint) - 1)) {
+  .footer__container {
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .footer__logo-address {
+    flex-basis: calc(50% - var(--containerPadding)); //Хитрые хаки для правильного позиционирования
+  }
+
+  .footer__subscribe {
+    flex-basis: 100%; //Нужно, чтобы блок был отцентрован
+  }
+
+  .footer__socials {
+    flex-basis: calc(50% - var(--containerPadding)); //Хитрые хаки для правильного позиционирования
+    // Хак для выставления всего блока socials по высоте. 20 это margin у title, а 16 — высота линии.
+    // Для позиционирования как в макете важно, чтобы кнопки были отцентрованы в блоке вертикально,
+    // имея сверху и снизу одинаковый по размеру контент.
+    padding-bottom: calc(20px + 16px);
+  }
+}
+
+
+/*----------- desktop ---------*/
+
+@media screen and (min-width: Var(desktop, breakPoint)) {
+  .footer {
+    text-align: left;
+  }
+
+  .footer__container {
+    align-items: baseline;
+  }
+
+  .footer__logo-address {
+    width: 231px; //Нужно из-за особенностей дизайна макета
+    margin-right: 70px;
+    margin-bottom: 0px;
+  }
+
+  .footer__address-item {
+    margin-bottom: 9px; // Как это ни странно, но в desktop тут 9!
+  }
+
+  .footer__socials {
+    margin-right: auto;
+    margin-bottom: 0px;
+  }
+
+  .footer__subscribe {
+    & .subscribe__email {
+      width: 358px;
+    }
+  }
 }

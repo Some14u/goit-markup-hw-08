@@ -2,6 +2,8 @@
 @import "utils/setup";
 @import "utils/common";
 
+@import "components/modal-window";
+
 @import "components/header";
 @import "components/logo";
 @import "components/main-menu";
@@ -14,7 +16,6 @@
 @import "components/footer";
 @import "components/subscribe";
 
-@import "components/modal-window";
 @import "components/order-form";
 
 @import "components/projects";

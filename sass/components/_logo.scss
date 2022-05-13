@@ -1,18 +1,25 @@
 .logo {
+  display: inline-block;
   font-family: "Raleway", sans-serif;
-  font-size: var(--logoFontSize, 26px);
+  font-size: relFont(24px);
   font-weight: 700;
-
-  font-size: 24px;
   line-height: calc(28 / 24);
 
-  // font-size: 26px; // desktop
-  // line-height: calc(31 / 26);
   letter-spacing: .03em;
-  color: var(--black-c);
+  color: var(--text-c-1);
 }
 
 .logo__part {
-  display: inline-block;
   color: var(--prima-c);
+}
+
+
+/*----------- desktop ---------*/
+
+@media screen and (min-width: Var(desktop, breakPoint)) {
+  .logo {
+     font-size: relFont(26px);
+     line-height: calc(31 / 26);
+     color: var(--black-c);
+    }
 }

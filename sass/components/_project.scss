@@ -1,9 +1,12 @@
 .project {
   width: 100%;
+  flex-basis: calc(100% / var(--projectColumns) - var(--spacer));
 }
 
 .project__link {
-  display: block;
+  height: 100%;  //Эти три нужны чтобы блок растягивался по высоте, если есть соседний больше по высоте
+  display: flex;
+  flex-direction: column;
 
   transition: box-shadow var(--anim-speed) var(--anim-fn);
 
@@ -19,8 +22,17 @@
 
 .project__img {
   display: block;
-  height: 294px;
+  aspect-ratio: var(--projectImgAspect);
   object-fit: cover;
+}
+
+//Ещё один грязный фикс для соотвествия макету. в tablet режиме одна из картинок
+//имеет нестандартное смещение контента
+@media screen and (min-width: Var(tablet, breakPoint))
+  and (max-width: (Var(desktop, breakPoint) - 1)) {
+  .project__img--second {
+    object-position: 0px calc(50% - 24px);
+  }
 }
 
 .project__img-overlay {
@@ -47,6 +59,7 @@
 }
 
 .project__description {
+  flex: 1; //Нужно, чтоб блок занял максимальную высоту
   padding-top: 20px;
   padding-left: 23px;
   padding-right: 23px;

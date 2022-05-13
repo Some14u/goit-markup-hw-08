@@ -1,20 +1,27 @@
 .order {
+  height: 400px;
+  margin: auto;
+  max-width: calc(Var(desktop, breakPoint) + 400px);
   @include flex-centered;
   flex-direction: column;
+  
   background-color: rgb(var(--gray-bg));
-  background-image: linear-gradient(rgba(var(--gray-bg),.4) 40%, rgba(var(--gray-bg),.4) 40%), url("../images/team-bg.jpg");
+  background-image:
+    linear-gradient(rgba(var(--gray-bg),.4) 40%, rgba(var(--gray-bg),.4) 40%),
+    url("../images/team-bg.jpg");
   background-size: cover;
   background-position: center;
-  height: 400px;
+  background-clip: content-box;
 }
+
 
 .order__text {
   margin-bottom: 30px;
   font-weight: 900;
-  font-size: 26px;
+  font-size: relFont(26px);
   line-height: calc(42 / 26);
   text-align: center;
-  letter-spacing: 0.06em;
+  letter-spacing: .06em;
   text-transform: uppercase;
 
   color: var(--white-c);
@@ -35,5 +42,35 @@
   transition: background-color var(--anim-speed) var(--anim-fn);
   &:hover, &:focus {
     background-color: var(--prima-c2);
+  }
+}
+
+.order__modal-window {
+  width: 100%;
+  min-width: calc(320px - var(--containerPadding) * 2);
+  max-width: calc(Var(mobile, breakPoint) - var(--containerPadding) * 2);
+
+  &--hidden {
+    transform: translate(-50%, calc(60vh + 50%)) rotate(-180deg) scale(2);
+  }
+}
+
+
+/*----------- desktop ---------*/
+
+@media screen and (min-width: Var(desktop, breakPoint)) {
+  .order__modal-window {
+    max-width: 528px;
+  }
+  .order {
+    height: 600px;
+  }
+  .order__text {
+    font-size: relFont(44px);
+    line-height: calc(60 / 44);
+  }
+
+  .order { //В десктопной версии точка трансформации смещена вниз на 65px
+    background-position-y: calc(50% + 65px);
   }
 }

@@ -17,54 +17,56 @@
     <header class="header">
       <div class="container header__container">
         <a class="logo header__logo" href="#"> <span class="logo__part">Web</span>Studio</a>
-        <div class="header__mobile-menu-container header__mobile-menu-container--hidden" data-mobile-menu>
-          <nav class="main-menu header__main-menu">
-            <ul class="main-menu__list">
-              <li class="main-menu__item">
-                <a class="main-menu__link" href="index.html">Студия</a>
+        <div class="backdrop header__backdrop backdrop--hidden">
+          <div class="header__modal-window modal-window header__modal-window--hidden" modalWindow toggleBtn="toggleMobileMenu" hasBackdrop lockBodyScroll scrollTo="0">
+            <nav class="main-menu header__main-menu">
+              <ul class="main-menu__list">
+                <li class="main-menu__item">
+                  <a class="main-menu__link" href="index.html">Студия</a>
+                </li>
+                <li class="main-menu__item main-menu__item--selected">
+                  <a class="main-menu__link" href="portfolio.html">Портфолио</a>
+                </li>
+                <li class="main-menu__item">
+                  <a class="main-menu__link" href="contacts.html">Контакты</a>
+                </li>
+              </ul>
+            </nav>
+            <ul class="header__address-list">
+              <li class="header__address-item">
+                <a class="header__address-link header__address-link--appearance-email" href="mailto:info@devstudio.com">
+                  <svg class="header__address-icon header__address-icon-envelope" width="16" height="12">
+                    <use href="images/icons.svg#envelope" />
+                  </svg>
+                  info@devstudio.com
+                </a>
               </li>
-              <li class="main-menu__item main-menu__item--selected">
-                <a class="main-menu__link" href="portfolio.html">Портфолио</a>
-              </li>
-              <li class="main-menu__item">
-                <a class="main-menu__link" href="contacts.html">Контакты</a>
+              <li class="header__address-item">
+                <a class="header__address-link header__address-link--appearance-phone" href="tel:+380961111111">
+                  <svg class="header__address-icon header__address-icon-phone" width="10" height="16">
+                    <use href="images/icons.svg#smartphone" />
+                  </svg>
+                  +38&nbsp;096&nbsp;111&nbsp;11&nbsp;11
+                </a>
               </li>
             </ul>
-          </nav>
-          <ul class="header__address-list">
-            <li class="header__address-item">
-              <a class="header__address-link header__address-link--appearance-email" href="mailto:info@devstudio.com">
-                <svg class="header__address-icon" width="16" height="12">
-                  <use href="images/icons.svg#envelope" />
-                </svg>
-                info@devstudio.com
-              </a>
-            </li>
-            <li class="header__address-item">
-              <a class="header__address-link header__address-link--appearance-phone" href="tel:+380961111111">
-                <svg class="header__address-icon" width="10" height="16">
-                  <use href="images/icons.svg#smartphone" />
-                </svg>
-                +38&nbsp;096&nbsp;111&nbsp;11&nbsp;11
-              </a>
-            </li>
-          </ul>
-          <ul class="header__socials-list">
-            <li class="header__socials-item">
-              <a class="header__socials-link" href="">Instagram</a>
-            </li>
-            <li class="header__socials-item">
-              <a class="header__socials-link" href="">Twitter</a>
-            </li>
-            <li class="header__socials-item">
-              <a class="header__socials-link" href="">Facebook</a>
-            </li>
-            <li class="header__socials-item">
-              <a class="header__socials-link" href="">LinkedIn</a>
-            </li>
-          </ul>
+            <ul class="header__socials-list">
+              <li class="header__socials-item">
+                <a class="header__socials-link" href="">Instagram</a>
+              </li>
+              <li class="header__socials-item">
+                <a class="header__socials-link" href="">Twitter</a>
+              </li>
+              <li class="header__socials-item">
+                <a class="header__socials-link" href="">Facebook</a>
+              </li>
+              <li class="header__socials-item">
+                <a class="header__socials-link" href="">LinkedIn</a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <button class="header__mobile-menu-btn" data-mobile-menu-open>
+        <button class="header__mobile-menu-btn" toggleMobileMenu>
           <svg class="header__mobile-menu-icon" width="40" height="40">
             <use href="images/icons.svg#header-menu-btn" />
           </svg>
@@ -110,7 +112,7 @@
             <li class="project">
               <a class="project__link" href="">
                 <div class="project__img-wrapper">
-                  <img class="project__img" src="images/project2.jpg" alt="Проект 2" width="370" height="294" />
+                  <img class="project__img project__img--second" src="images/project2.jpg" alt="Проект 2" width="370" height="294" />
                   <div class="project__img-overlay">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate ab voluptate cum! Ab, quia nesciunt, sequi aut id voluptatem earum et cumque illum excepturi autem iusto iure.</div>
                 </div>
                 <div class="project__description">
@@ -260,7 +262,7 @@
             </li>
           </ul>
         </div>
-        <form class="subscribe" method="post" action="javascript:void(0);">
+        <form class="subscribe footer__subscribe" method="post" action="javascript:void(0);">
           <label class="subscribe__title" for="subscribe">Подпишитесь на рассылку</label>
           <div class="subscribe__wrapper">
             <input class="subscribe__email" type="email" name="subscribe" id="subscribe" required placeholder="E-mail" />

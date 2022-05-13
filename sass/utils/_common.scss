@@ -1,39 +1,35 @@
-@use "sass:math";
-
 @mixin flex-centered {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-// Масштабирует шрифт. На входе размер в пикселах из макета,
-// на выходе — в масштабе baseFontSize/14
-@function relFont($size) {
-  @return calc(var(--baseFontSize) * math.div($size, 14px));
-}
-
 
 body {
   font-family: var(--baseFontFamily, "Roboto", sans-serif);
   font-size: var(--baseFontSize, 14px);
-  letter-spacing: var(--baseLetterSpacing, .03);
+  letter-spacing: var(--baseLetterSpacing, 0.03);
   background-color: var(--white-c);
-}
-
-.body--locked {
-  overflow: hidden;
+  &.scroll-disabled {
+    position: fixed;
+    overflow-y: scroll;
+    width: 100%;
+  }
 }
 
 .container {
   width: 100%;
-  padding-left: var(--containerPadding, 15px);
-  padding-right: var(--containerPadding, 15px);
-  // margin-left: auto;
-  // margin-right: auto;
+  padding-left: var(--containerPadding);
+  padding-right: var(--containerPadding);
+  margin-left: auto;
+  margin-right: auto;
+
+  max-width: var(--containerWidth);
 }
 
 .button {
-  &[type="button"], &[type="submit"] {
+  &[type="button"],
+  &[type="submit"] {
     cursor: pointer;
     border: none;
     border-radius: 4px;
@@ -65,21 +61,22 @@ body {
   font-size: relFont(28px);
   line-height: calc(33 / 28);
 
-  // font-size: relFont(36px); // desktop
-  // line-height: calc(42 / 36);
+  @media screen and (min-width: Var(desktop, breakPoint)) {
+    font-size: relFont(36px);
+    line-height: calc(42 / 36);
+  }
 
   text-align: center;
-  letter-spacing: .03em;
+  letter-spacing: 0.03em;
   color: var(--text-c-1);
 }
 
 .section__title-h2 {
-  margin-bottom: var(--minorMargin, 50px);
+  margin-bottom: var(--minorMargin);
 }
 
 .wrappable {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
   margin-left: calc(-1 * var(--spacer));
   margin-top: calc(-1 * var(--spacer));
@@ -87,24 +84,4 @@ body {
     margin-left: var(--spacer);
     margin-top: var(--spacer);
   }
-}
-
-.backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 100;
-
-  overflow-y: auto;
-
-  background-color: rgba(var(--black-c-values), 0.2);
-  opacity: 1;
-  transition: opacity var(--anim-speed) var(--anim-fn);
-}
-
-.backdrop--hidden {
-  pointer-events: none;
-  opacity: 0;
 }
