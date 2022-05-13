@@ -682,11 +682,45 @@ body.scroll-disabled {
       -ms-flex-direction: column;
           flex-direction: column;
   background-color: rgb(var(--gray-bg));
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(40%, rgba(var(--gray-bg), 0.4)), color-stop(40%, rgba(var(--gray-bg), 0.4))), url("../images/team-bg.jpg");
-  background-image: linear-gradient(rgba(var(--gray-bg), 0.4) 40%, rgba(var(--gray-bg), 0.4) 40%), url("../images/team-bg.jpg");
   background-size: cover;
   background-position: center;
   background-clip: content-box;
+}
+@media screen and (max-width: 625px) and (min-device-pixel-ratio: 1), screen and (max-width: 625px) and (-webkit-min-device-pixel-ratio: 1), screen and (max-width: 625px) and (min-resolution: 96dpi), screen and (max-width: 625px) and (min-resolution: 1dppx) {
+  .order {
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(40%, rgba(var(--gray-bg), 0.4)), color-stop(40%, rgba(var(--gray-bg), 0.4))), url("../images/team-bg-h400.jpg");
+    background-image: linear-gradient(rgba(var(--gray-bg), 0.4) 40%, rgba(var(--gray-bg), 0.4) 40%), url("../images/team-bg-h400.jpg");
+  }
+}
+@media screen and (max-width: 625px) and (min-device-pixel-ratio: 2), screen and (max-width: 625px) and (-webkit-min-device-pixel-ratio: 2), screen and (max-width: 625px) and (min-resolution: 192dpi), screen and (max-width: 625px) and (min-resolution: 2dppx) {
+  .order {
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(40%, rgba(var(--gray-bg), 0.4)), color-stop(40%, rgba(var(--gray-bg), 0.4))), url("../images/team-bg-h400@2x.jpg");
+    background-image: linear-gradient(rgba(var(--gray-bg), 0.4) 40%, rgba(var(--gray-bg), 0.4) 40%), url("../images/team-bg-h400@2x.jpg");
+  }
+}
+@media screen and (max-width: 625px) and (min-device-pixel-ratio: 3), screen and (max-width: 625px) and (-webkit-min-device-pixel-ratio: 3), screen and (max-width: 625px) and (min-resolution: 288dpi), screen and (max-width: 625px) and (min-resolution: 3dppx) {
+  .order {
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(40%, rgba(var(--gray-bg), 0.4)), color-stop(40%, rgba(var(--gray-bg), 0.4))), url("../images/team-bg.jpg");
+    background-image: linear-gradient(rgba(var(--gray-bg), 0.4) 40%, rgba(var(--gray-bg), 0.4) 40%), url("../images/team-bg.jpg");
+  }
+}
+@media screen and (min-width: 626px) and (max-width: 768px) and (min-device-pixel-ratio: 1), screen and (min-width: 626px) and (max-width: 768px) and (-webkit-min-device-pixel-ratio: 1), screen and (min-width: 626px) and (max-width: 768px) and (min-resolution: 96dpi), screen and (min-width: 626px) and (max-width: 768px) and (min-resolution: 1dppx) {
+  .order {
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(40%, rgba(var(--gray-bg), 0.4)), color-stop(40%, rgba(var(--gray-bg), 0.4))), url("../images/team-bg-w768.jpg");
+    background-image: linear-gradient(rgba(var(--gray-bg), 0.4) 40%, rgba(var(--gray-bg), 0.4) 40%), url("../images/team-bg-w768.jpg");
+  }
+}
+@media screen and (min-width: 626px) and (max-width: 768px) and (min-device-pixel-ratio: 2), screen and (min-width: 626px) and (max-width: 768px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 626px) and (max-width: 768px) and (min-resolution: 192dpi), screen and (min-width: 626px) and (max-width: 768px) and (min-resolution: 2dppx) {
+  .order {
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(40%, rgba(var(--gray-bg), 0.4)), color-stop(40%, rgba(var(--gray-bg), 0.4))), url("../images/team-bg.jpg");
+    background-image: linear-gradient(rgba(var(--gray-bg), 0.4) 40%, rgba(var(--gray-bg), 0.4) 40%), url("../images/team-bg.jpg");
+  }
+}
+@media screen and (min-width: 769px) {
+  .order {
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(40%, rgba(var(--gray-bg), 0.4)), color-stop(40%, rgba(var(--gray-bg), 0.4))), url("../images/team-bg.jpg");
+    background-image: linear-gradient(rgba(var(--gray-bg), 0.4) 40%, rgba(var(--gray-bg), 0.4) 40%), url("../images/team-bg.jpg");
+  }
 }
 
 .order__text {

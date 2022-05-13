@@ -109,3 +109,9 @@ dist
 # vscode конфиги
 .vscode
 .vscode/*
+
+# исходники картинок
+images/.compressed
+images/.compressed/*
+images/.uncompressed
+images/.uncompressed/*
