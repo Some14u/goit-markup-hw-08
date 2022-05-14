@@ -18,7 +18,7 @@
       <div class="container header__container">
         <a class="logo header__logo" href="#"> <span class="logo__part">Web</span>Studio</a>
         <div class="backdrop header__backdrop backdrop--hidden">
-          <div class="header__modal-window modal-window header__modal-window--hidden" modalWindow toggleBtn="toggleMobileMenu" hasBackdrop lockBodyScroll scrollTo="0">
+          <div class="header__modal-window modal-window header__modal-window--hidden" data-modal-window data-toggle-btn="data-toggle-mobile-menu" data-has-backdrop data-lock-body-scroll data-scroll-to="0">
             <nav class="main-menu header__main-menu">
               <ul class="main-menu__list">
                 <li class="main-menu__item">
@@ -66,7 +66,7 @@
             </ul>
           </div>
         </div>
-        <button class="header__mobile-menu-btn" toggleMobileMenu>
+        <button class="header__mobile-menu-btn" data-toggle-mobile-menu>
           <svg class="header__mobile-menu-icon" width="40" height="40">
             <use href="images/icons.svg#header-menu-btn" />
           </svg>

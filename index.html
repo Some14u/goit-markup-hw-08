@@ -18,7 +18,7 @@
       <div class="container header__container">
         <a class="logo header__logo" href="#"> <span class="logo__part">Web</span>Studio</a>
         <div class="backdrop header__backdrop backdrop--hidden">
-          <div class="header__modal-window modal-window header__modal-window--hidden" modalWindow toggleBtn="toggleMobileMenu" hasBackdrop lockBodyScroll scrollTo="0">
+          <div class="header__modal-window modal-window header__modal-window--hidden" data-modal-window data-toggle-btn="data-toggle-mobile-menu" data-has-backdrop data-lock-body-scroll data-scroll-to="0">
             <nav class="main-menu header__main-menu">
               <ul class="main-menu__list">
                 <li class="main-menu__item main-menu__item--selected">
@@ -66,7 +66,7 @@
             </ul>
           </div>
         </div>
-        <button class="header__mobile-menu-btn" toggleMobileMenu>
+        <button class="header__mobile-menu-btn" data-toggle-mobile-menu>
           <svg class="header__mobile-menu-icon" width="40" height="40">
             <use href="images/icons.svg#header-menu-btn" />
           </svg>
@@ -82,7 +82,7 @@
           Эффективные решения<br />
           для вашего бизнеса
         </h1>
-        <button class="button order__button" type="button" openOrderModal classToToggle="order_button">Заказать услугу</button>
+        <button class="button order__button" type="button" data-open-order-modal data-class-to-toggle="order_button">Заказать услугу</button>
       </section>
       <!-- Features section -->
       <section class="features section">
@@ -471,7 +471,7 @@
 
     <!-- Order modal window -->
     <div class="backdrop backdrop--hidden">
-      <div class="modal-window order__modal-window order__modal-window--hidden" modalWindow openBtn="openOrderModal" closeBtn="closeOrderModal" classToToggle="order__modal-window" lockBodyScroll backdropCloses>
+      <div class="modal-window order__modal-window order__modal-window--hidden" data-modal-window data-open-btn="data-open-order-modal" data-close-btn="data-close-order-modal" data-class-to-toggle="order__modal-window" data-lock-body-scroll data-backdrop-closes>
         <form class="order-form" method="post" action="javascript:void(0);">
           <p class="order-form__title">Оставьте свои данные, мы вам перезвоним</p>
           <label class="order-form__field">
@@ -509,7 +509,7 @@
           </label>
           <button class="button order-form__submit-btn" type="submit">Отправить</button>
         </form>
-        <button class="modal-window__close-btn" type="button" closeOrderModal>
+        <button class="modal-window__close-btn" type="button" data-close-order-modal>
           <svg class="modal-window__close-icon" width="11px" height="11px">
             <use href="images/icons.svg#cross" />
           </svg>

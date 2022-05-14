@@ -1,55 +1,55 @@
 (() => {
   /* Обслуживает модальные окна, обрабатывая атрибуты ноды
-     Нода-родитель для модального окна должна содержать атрибут modalWindow.
+     Нода-родитель для модального окна должна содержать атрибут data-modal-window.
      Тогда считается, что это модальное окно, и анализируются другие атрибуты этой ноды.
      Видимость окна управляется добавлением/скрытием класса-модификатора *--hidden. Этот класс
      может добавляться на само модальное окно и при необходимости на родительский бэкдроп (см. ниже).
      Управляющие атрибуты представляют собой:
-     classToToggle = "имя класса" — явно указывает класс, к которому будет приписываться --hidden
+     data-class-to-toggle = "имя класса" — явно указывает класс, к которому будет приписываться --hidden
        на ноде модального окна (и/или бэкдропа, см. ниже).
-     toggleBtn = "имя атрибута" — задаёт ноду для кнопки-переключателя видимости модального окна
        Скрипт ищет ноду с атрибутом "имя атрибута" и вешает на него обработчик-переключатель видимости по клику
+     data-toggle-btn = "имя атрибута" — задаёт ноду для кнопки-переключателя видимости модального окна
        Нода может менять свой внешний вид в зависимости от состояния, для чего ей при включении добавляется
-       класс *--opened, где * это значение атрибута classToToggle кнопки, или первый класс в списке классов.
-     openBtn/closeBtn = "имя атрибута" — то же самое, но без переключения внешнего вида самой кнопки.
+       класс *--opened, где * это значение атрибута data-class-to-toggle кнопки, или первый класс в списке классов.
+     data-open-btn/data-close-btn = "имя атрибута" — то же самое, но без переключения внешнего вида самой кнопки.
        Это нужно для двух разных кнопок, открывающих и закрывающих модальное окно.
-     hasBackdrop — если есть этот атрибут, нода-родитель считается бэкдропом, и её видимость
+     data-has-backdrop — если есть этот атрибут, нода-родитель считается бэкдропом, и её видимость
        переключается вместе с модальным окном. Бэкдропу в скрытом состоянии добавляется
-       класс *--hidden, подставляя вместо звёздочки содержимое classToToggle бэкдропа
+       класс *--hidden, подставляя вместо звёздочки содержимое data-class-to-toggle бэкдропа
        или базовый класс (первый указанный), если этого атрибута не найдено.
-     backdropCloses — если есть бэкдроп, наличие этого атрибута позволяет закрывать
+     data-backdrop-closes — если есть бэкдроп, наличие этого атрибута позволяет закрывать
        модальное окно по клику вне его границ
-     lockBodyScroll — наличие этого атрибута позволяет управлять прокруткой фона за модальным окном
+     data-lock-body-scroll — наличие этого атрибута позволяет управлять прокруткой фона за модальным окном
        добавляет на body класс "scroll-disabled", в который можно вписать блокировку прокрутки
-     scrollTo="y-value" — при открытии модального окна можно принудительно прокрутить документ
+     data-scroll-to="y-value" — при открытии модального окна можно принудительно прокрутить документ
        в нужную координату.
     Пример использования:
-    <button class="btn trigger-this" onOffModalBtn classToToggle="trigger-this">Показать/скрыть</button>
-    <button class="btn" showModalBtn>Показать</button>
+    <button class="btn trigger-this" data-on-off-modal-btn data-class-to-toggle="trigger-this">Показать/скрыть</button>
+    <button class="btn" data-show-modal-btn>Показать</button>
     ...
-    <div class="backdrop section__backdrop" classToToggle="section__backdrop">
+    <div class="backdrop section__backdrop" data-class-to-toggle="section__backdrop">
       <div
         class="modal-window something section__modal-window"
-        modalWindow
-        toggleBtn="onOffModalBtn"
-        openBtn="showModalBtn"
-        closeBtn="closeWindowBtn"
-        classToToggle="something"
-        lockBodyScroll
-        scrollTo="0"
+        data-modal-window
+        data-toggle-btn="data-on-off-modal-btn"
+        data-open-btn="data-show-modal-btn"
+        data-close-btn="data-close-modal-btn"
+        data-class-to-toggle="something"
+        data-has-backdrop
+        data-lock-body-scroll
+        data-scroll-to="0"
         >
         ...
-          <button class="btn" closeWindowBtn>Скрыть</button>
+          <button class="btn" data-close-modal-btn>Скрыть</button>
         ...
       </div>
     </div>
-
     У первой кнопки можно определить два разных стиля: trigger-this и trigger-this--opened
     Вторая кнопка будет открывать, а третья закрывать окно.
     У бэкдропа будет два состояния: есть или нет section__backdrop--hidden
     То же самое касается и модального окна. Будет добавляться стиль something--hidden
   */
-  const modals = document.querySelectorAll("[modalWindow]");
+  const modals = document.querySelectorAll("[data-modal-window]");
 
   const { body, documentElement } = document;
   let { scrollTop } = document.documentElement;
@@ -85,21 +85,21 @@
         window.scrollTo(0, scrollTo);
       }
       if (toggleBtn) {
-        toggleBtn.classList.toggle(toggleBtn.getAttribute("classToToggle") || toggleBtn.classList[0] + "--opened");
+        toggleBtn.classList.toggle(toggleBtn.getAttribute("data-class-to-toggle") || toggleBtn.classList[0] + "--opened");
       }
     }
     function locateElement(name) {
       return name && document.querySelector(`[${name}]`);
     }
-    const toggleBtn = locateElement(element.getAttribute("toggleBtn"));
-    const openBtn = locateElement(element.getAttribute("openBtn"));
-    const closeBtn = locateElement(element.getAttribute("closeBtn"));
-    const classToToggle = element.getAttribute("classToToggle") || element.classList[0];
-    const lockBodyScroll = element.getAttribute("lockBodyScroll");
-    const scrollTo = element.getAttribute("scrollTo");
-    const backdropClassToToggle = element.getAttribute("hasBackdrop") &&
-      element.parentNode.getAttribute("classToToggle") || element.parentNode.classList[0];
-    const backdropCloses = element.getAttribute("backdropCloses");
+    const toggleBtn = locateElement(element.getAttribute("data-toggle-btn"));
+    const openBtn = locateElement(element.getAttribute("data-open-btn"));
+    const closeBtn = locateElement(element.getAttribute("data-close-btn"));
+    const classToToggle = element.getAttribute("data-class-to-toggle") || element.classList[0];
+    const lockBodyScroll = element.getAttribute("data-lock-body-scroll");
+    const scrollTo = element.getAttribute("data-scroll-to");
+    const backdropClassToToggle = element.getAttribute("data-has-backdrop") &&
+      element.parentNode.getAttribute("data-class-to-toggle") || element.parentNode.classList[0];
+    const backdropCloses = element.getAttribute("data-backdrop-closes");
 
     if (backdropClassToToggle && backdropCloses == "") {
       element.parentNode.addEventListener("click", (event) => {
